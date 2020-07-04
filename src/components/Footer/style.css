@@ -1,0 +1,12 @@
+.footer {
+    height: 10vh;
+    background: #E5E5E5;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .footer span {
+    margin-right: 5em;
+  }
+  

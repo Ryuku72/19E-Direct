@@ -1,0 +1,394 @@
+[
+  {
+    "name": "Joshua K Bader",
+    "department": "Director",
+    "role": "CEO",
+    "manager": "Joshua K Bader",
+    "salary": 520000,
+    "email": "Joshua.Bader@Foreigntk.com"
+  },
+  {
+    "name": "Jarrad Vennett",
+    "department": "Marketing",
+    "role": "Manager",
+    "manager": "Joshua K Bader",
+    "salary": 165000,
+    "email": "Jarrad.Vennett@Foreigntk.com"
+  },
+  {
+    "name": "Michael Burry",
+    "department": "Marketing",
+    "role": "Graphic Designer",
+    "manager": "Jarrad Vennett",
+    "salary": 122322,
+    "email": "Michael.Burry@Foreigntk.com"
+  },
+  {
+    "name": "Mark Baum",
+    "department": "Marketing",
+    "role": "Sales",
+    "manager": "Jarrad Vennett",
+    "salary": 122322,
+    "email": "Mark.Baum@Foreigntk.com"
+  },
+  {
+    "name": "Cynthia Baum",
+    "department": "Marketing",
+    "role": "Sales",
+    "manager": "Jarrad Vennett",
+    "salary": 122322,
+    "email": "Cynthia.Baum@Foreigntk.com"
+  },
+  {
+    "name": "Bengee Rickert",
+    "department": "Marketing",
+    "role": "Public Relations",
+    "manager": "Jarrad Vennett",
+    "salary": 118009,
+    "email": "Bengee.Rickert@Foreigntk.com"
+  },
+  {
+    "name": "Lewis Ranieri",
+    "department": "Marketing",
+    "role": "Analyst",
+    "manager": "Jarrad Vennett",
+    "salary": 102890,
+    "email": "Lewis.Ranieri@Foreigntk.com"
+  },
+  {
+    "name": "Mitch McDeere",
+    "department": "Legal",
+    "role": "Manager",
+    "manager": "Joshua K Bader",
+    "salary": 135000,
+    "email": "Mitch.McDeere@Foreigntk.com"
+  },
+  {
+    "name": "Abby McDeere",
+    "department": "Legal",
+    "role": "Consultant",
+    "manager": "Mitch McDeere",
+    "salary": 102105,
+    "email": "Abby.McDeere@Foreigntk.com"
+  },
+  {
+    "name": "Avery Tolar",
+    "department": "Legal",
+    "role": "Accountant",
+    "manager": "Mitch McDeere",
+    "salary": 100371,
+    "email": "Avery.Tolar@Foreigntk.com"
+  },
+  {
+    "name": "Oliver Lambert",
+    "department": "Legal",
+    "role": "Accountant",
+    "manager": "Mitch McDeere",
+    "salary": 100371,
+    "email": "Oliver.Lambert@Foreigntk.com"
+  },
+  {
+    "name": "Lamar Quinn",
+    "department": "Legal",
+    "role": "Corperate Lawyer",
+    "manager": "Mitch McDeere",
+    "salary": 120220,
+    "email": "Lamar.Quinn@Foreigntk.com"
+  },
+  {
+    "name": "William Devasher",
+    "department": "Legal",
+    "role": "Paralegal",
+    "manager": "Mitch McDeere",
+    "salary": 108013,
+    "email": "William.Devasher@Foreigntk.com"
+  },
+  {
+    "name": "Tammy Hemphill",
+    "department": "Legal",
+    "role": "Paralegal",
+    "manager": "Mitch McDeere",
+    "salary": 109221,
+    "email": "Tammy.Hemphill@Foreigntk.com"
+  },
+  {
+    "name": "Neil Armstrong",
+    "department": "Research and Development",
+    "role": "Manager",
+    "manager": "Joshua K Bader",
+    "salary": 205000,
+    "email": "Neil.Armstrong@Foreigntk.com"
+  },
+  {
+    "name": "Edward White",
+    "department": "Research and Development",
+    "role": "Robotics Engineer",
+    "manager": "Neil Armstrong",
+    "salary": 322070,
+    "email": "Edward.White@Foreigntk.com"
+  },
+  {
+    "name": "Deke Slayton",
+    "department": "Research and Development",
+    "role": "Mechanical Engineer",
+    "manager": "Neil Armstrong",
+    "salary": 272108,
+    "email": "Deke.Slayton@Foreigntk.com"
+  },
+  {
+    "name": "Buzz Aldrin",
+    "department": "Research and Development",
+    "role": "Mechanical Engineer",
+    "manager": "Neil Armstrong",
+    "salary": 290092,
+    "email": "Buzz.Aldrin@Foreigntk.com"
+  },
+  {
+    "name": "Janet Armstrong",
+    "department": "Research and Development",
+    "role": "Physicist",
+    "manager": "Neil Armstrong",
+    "salary": 302040,
+    "email": "Janet.Armstrong@Foreigntk.com"
+  },
+  {
+    "name": "Robert Gilruth",
+    "department": "Research and Development",
+    "role": "Physicist",
+    "manager": "Neil Armstrong",
+    "salary": 282111,
+    "email": "Robert.Gilruth@Foreigntk.com"
+  },
+  {
+    "name": "Elliot See",
+    "department": "Research and Development",
+    "role": "Electronics Engineer",
+    "manager": "Neil Armstrong",
+    "salary": 199222,
+    "email": "Elliot.See@Foreigntk.com"
+  },
+  {
+    "name": "Patrick White",
+    "department": "Research and Development",
+    "role": "Electronics Engineer",
+    "manager": "Neil Armstrong",
+    "salary": 209200,
+    "email": "Patrick.White@Foreigntk.com"
+  },
+  {
+    "name": "Douglas Rayholm",
+    "department": "Information Technology",
+    "role": "Manager",
+    "manager": "Joshua K Bader",
+    "salary": 135220,
+    "email": "Douglas.Rayholm@Foreigntk.com"
+  },
+  {
+    "name": "Roy Trenneman",
+    "department": "Information Technology",
+    "role": "Software Engineer",
+    "manager": "Douglas Rayholm",
+    "salary": 87000,
+    "email": "Roy.Trenneman@Foreigntk.com"
+  },
+  {
+    "name": "Jennifer Barber",
+    "department": "Information Technology",
+    "role": "Adminstration",
+    "manager": "Douglas Rayholm",
+    "salary": 102001,
+    "email": "Jennifer.Barber@Foreigntk.com"
+  },
+  {
+    "name": "Maurice Moss",
+    "department": "Information Technology",
+    "role": "Network Engineer",
+    "manager": "Douglas Rayholm",
+    "salary": 92022,
+    "email": "Maurice.Moss@Foreigntk.com"
+  },
+  {
+    "name": "Denholm Reyholms",
+    "department": "Information Technology",
+    "role": "Adminstration",
+    "manager": "Douglas Rayholm",
+    "salary": 101900,
+    "email": "Denholm.Reyholms@Foreigntk.com"
+  },
+  {
+    "name": "Richmond Dracula",
+    "department": "Information Technology",
+    "role": "Network Architect",
+    "manager": "Douglas Rayholm",
+    "salary": 87333,
+    "email": "Richmond.Dracula@Foreigntk.com"
+  },
+  {
+    "name": "Michael Scott",
+    "department": "Enquiries",
+    "role": "Manager",
+    "manager": "Joshua K Bader",
+    "salary": 165000,
+    "email": "Michael.Scott@Foreigntk.com"
+  },
+  {
+    "name": "Dwight Schrute",
+    "department": "Enquiries",
+    "role": "Feedback Administrator",
+    "manager": "Michael Scott",
+    "salary": 51081,
+    "email": "Dwight.Schrut@Foreigntk.com"
+  },
+  {
+    "name": "Angela Martin",
+    "department": "Enquiries",
+    "role": "Feedback Administrator",
+    "manager": "Michael Scott",
+    "salary": 50002,
+    "email": "Angela.Martin@Foreigntk.com"
+  },
+  {
+    "name": "Jim Halpert",
+    "department": "Enquiries",
+    "role": "Systems specialist",
+    "manager": "Michael Scott",
+    "salary": 42992,
+    "email": "Jim.Halpert@Foreigntk.com"
+  },
+  {
+    "name": "Pam Beesly",
+    "department": "Enquiries",
+    "role": "Systems specialist",
+    "manager": "Michael Scott",
+    "salary": 450012,
+    "email": "Pam.Beesly@Foreigntk.com"
+  },
+  {
+    "name": "Kelly Kapoor",
+    "department": "Enquiries",
+    "role": "Customer Service Representive",
+    "manager": "Michael Scott",
+    "salary": 39988,
+    "email": "Kelly.Kapoor@Foreigntk.com"
+  },
+  {
+    "name": "Stanley Hudson",
+    "department": "Enquiries",
+    "role": "Customer Service Representive",
+    "manager": "Michael Scott",
+    "salary": 41211,
+    "email": "Stanley.Hudson@Foreigntk.com"
+  },
+  {
+    "name": "Kevin Malone",
+    "department": "Enquiries",
+    "role": "Customer Service Representive",
+    "manager": "Michael Scott",
+    "salary": 40233,
+    "email": "Kevin.Malone@Foreigntk.com"
+  },
+  {
+    "name": "Phyllis Vance",
+    "department": "Enquiries",
+    "role": "Customer Service Representive",
+    "manager": "Michael Scott",
+    "salary": 43333,
+    "email": "Phyllis.Vance@Foreigntk.com"
+  },
+  {
+    "name": "Creed Bratton",
+    "department": "Enquiries",
+    "role": "Customer Service Representive",
+    "manager": "Michael Scott",
+    "salary": 41238,
+    "email": "Creed.Bratton@Foreigntk.com"
+  },
+  {
+    "name": "Meredith Palmer",
+    "department": "Enquiries",
+    "role": "Customer Service Representive",
+    "manager": "Michael Scott",
+    "salary": 40018,
+    "email": "Meredith.Palmer@Foreigntk.com"
+  },
+  {
+    "name": "Nick Fury",
+    "department": "Security",
+    "role": "Manager",
+    "manager": "Joshua K Bader",
+    "salary": 75200,
+    "email": "Nick.Fury@Foreigntk.com"
+  },
+  {
+    "name": "Tony Stark",
+    "department": "Security",
+    "role": "Security Officer",
+    "manager": "Nick Fury",
+    "salary": 64118,
+    "email": "Tony.Stark@Foreigntk.com"
+  },
+  {
+    "name": "Steve Rogers",
+    "department": "Security",
+    "role": "Security Officer",
+    "manager": "Nick Fury",
+    "salary": 60998,
+    "email": "Steve.Rogers@Foreigntk.com"
+  },
+  {
+    "name": "Bruce Banner",
+    "department": "Security",
+    "role": "Security Guard",
+    "manager": "Nick Fury",
+    "salary": 58206,
+    "email": "Bruce.Banner@Foreigntk.com"
+  },
+  {
+    "name": "Thor OdinSon",
+    "department": "Security",
+    "role": "Security Guard",
+    "manager": "Nick Fury",
+    "salary": 55111,
+    "email": "Thor.OdinSon@Foreigntk.com"
+  },
+  {
+    "name": "Natasha Romanoff",
+    "department": "Security",
+    "role": "Security Guard",
+    "manager": "Nick Fury",
+    "salary": 68221,
+    "email": "Natasha.Romanoff@Foreigntk.com"
+  },
+  {
+    "name": "Clint Barton",
+    "department": "Security",
+    "role": "Security Guard",
+    "manager": "Nick Fury",
+    "salary": 64177,
+    "email": "Clint.Barton@Foreigntk.com"
+  },
+  {
+    "name": "Phil Coulson",
+    "department": "Security",
+    "role": "Surveillance",
+    "manager": "Nick Fury",
+    "salary": 82101,
+    "email": "Phil.Coulson@Foreigntk.com"
+  },
+  {
+    "name": "Maria Hill",
+    "department": "Security",
+    "role": "Surveillance",
+    "manager": "Nick Fury",
+    "salary": 82009,
+    "email": "Maria.Hill@Foreigntk.com"
+  },
+  {
+    "name": "Kokomi Bader",
+    "department": "Director",
+    "role": "Unknown",
+    "manager": "Joshua K Bader",
+    "salary": 420890,
+    "email": "Kokomi.Bader@Foreigntk.com"
+  }
+]
