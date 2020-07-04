@@ -3,13 +3,7 @@ import React from "react";
 function Home() {
     return (
         <div>
-        <h1>Hey guys! I'm a header!</h1>
-        <h2>Things I like!</h2>
-        <ul>
-          <li>Peas</li>
-          <li>Carrots</li>
-          <li>Love</li>
-        </ul>
+        <h1>JKB /// Employee Directory</h1>
       </div>
     )
 }
