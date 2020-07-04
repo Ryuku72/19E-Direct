@@ -3,8 +3,8 @@ import "./style.css";
 
 function Card(props) {
   return (
-    <div className="card">
-      <div className="content">
+    <div className="card border-green-400 border-2 m-2 ">
+      <div className="content p-4">
         <ul>
           <li>
             <strong>Name:</strong> {props.name}
@@ -27,9 +27,10 @@ function Card(props) {
         
         </ul>
       </div>
-      <span onClick={() => props.removeEmployee(props.name)} className="remove">
-        𝘅
-      </span>
+      <div className="flex justify-end mx-2 mb-1">
+      <button onClick={() => props.handleRemove(props.name)} className="text-red-700 text-xl m-1 border-red-600 border-2 w-10 flex justify-center ">
+      &times;</button>
+      </div>
     </div>
   );
 }
