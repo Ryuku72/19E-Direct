@@ -4,7 +4,7 @@ import "./style.css";
 function Footer() {
   return (
     <footer className="footer">
-      <span>Foreign Toolkit</span>
+      <span className="text-3xl">Foreign Toolkit</span>
     </footer>
   );
 }

@@ -19,7 +19,7 @@ function Card(props) {
             <strong>Manager:</strong> {props.manager}
           </li>
           <li>
-            <strong>Salary:</strong> {props.salary}
+            <strong>Salary:</strong> ${props.salary}
           </li>
           <li>
             <strong>Email:</strong> {props.email}

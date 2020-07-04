@@ -7,7 +7,7 @@ import data from "./company.json"
 
 function App() {
 
-  const [developerState, setDeveloperState] = useState(data);
+  const [developerState] = useState(data);
 
   return (
       <div>
@@ -19,13 +19,13 @@ function App() {
             name={result.name}
             department={result.department}
             role={result.role}
-            manager={data.manager}
-            salary={data.salary}
-            email={data.email}
+            manager={result.manager}
+            salary={result.salary}
+            email={result.email}
           />
           ))}
-        </Wrapper>
         <Footer />
+        </Wrapper>
       </div>
   );
 }
