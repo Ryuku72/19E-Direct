@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 function Navbar() {
   return (
-    <nav className="h-20 mb-4">
+    <nav className="h-20">
       <div className="w-full flex justify-center bg-gray-900 p-2">
         <h1 className="text-2xl font-mono text-white ml-2 ">FOREIGN TOOLKIT.<span className="text-lg text-blue-600 mx-2 ">
           EMPLOYEE//DIRECTORY</span></h1>

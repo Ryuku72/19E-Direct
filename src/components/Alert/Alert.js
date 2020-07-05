@@ -4,10 +4,10 @@ function Alert(props) {
   return (
     <div
       role="alert"
-      className={`alert alert-${props.type} fade in`}
-      style={{ width: "80%", margin: "0 auto", marginTop: 18, ...props.style }}
-    >
+      className="w-full flex flex-col justify-center items-center mt-5 rounded transition duration-700 ease-out" style={{...props.style}}>
+        <p className="bg-red-600 w-3/4 h-full flex flex-col justify-center items-center text-center text-white font-mono rounded-lg">
       {props.children}
+      </p>
     </div>
   );
 }

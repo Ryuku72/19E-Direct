@@ -84,10 +84,10 @@ function Home() {
   
     if (searchResult.length === 0 || searchResult === undefined){
       console.log("empty")
-      setSearchState({ ...searchState, error: "Nothing Found", results: unknownUser
+      setSearchState({ ...searchState, error: "No Employee // Role // Department Found !!!", results: unknownUser
     })
     } else {
-      setSearchState({ ...searchState, results: searchResult})
+      setSearchState({ ...searchState, results: searchResult, error: ""})
     }   
 
   }
@@ -104,9 +104,12 @@ function Home() {
         onHandleInputChange={onHandleInputChange}
         name={searchState.employees}
       />
-       <Alert 
-       
-       />
+       <Alert
+        style={{ height: searchState.error ? "3rem" : "0"}}
+       >
+      {searchState.error}
+      
+       </Alert>
       <div className="p-6 grid grid-cols-3 gap-3">
       {searchState.results.map(result => (
         <Card

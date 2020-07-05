@@ -5,8 +5,10 @@ function SearchForm(props) {
     <form className="search" id="create-course-form">
       <div className="form-group flex">
         <label htmlFor="employee" className="flex text-base items-end"></label>
-        <div className="border-2 w-1/5 ml-6 mx-2 shadow-lg p-1 flex justify-end">
-        <i className="w-1/12 fas fa-sitemap flew flex-row text-center border-r-2 w-1/10"></i>
+        <div className="border-2 w-1/5 mr-2 shadow-lg p-1 flex align-middle items-center">
+        <div className="border-r-2 h-full w-1/6 flex justify-center items-center">
+        <i className="fas fa-project-diagram mr-2"></i>
+        </div>
         <input
           value={props.search}
           onChange={props.onHandleInputChange}
@@ -15,7 +17,7 @@ function SearchForm(props) {
           type="text"
           placeholder="Search database..."
           id="employee"
-          className="px-2 ml-2 w-10/12 outline-none"
+          className="w-full px-2 ml-2 outline-none"
         />
         </div>
         <datalist id="employees">
