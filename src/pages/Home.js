@@ -66,6 +66,11 @@ function Home() {
   function cancelCourse(){ 
     document.getElementById("create-course-form").reset();
   }
+
+  function clearForm(){
+    document.getElementById("create-course-form").reset();
+    setSearchState(initialState)
+  }
   
   function onHandleFormSubmit(event) {
     event.preventDefault();
@@ -103,6 +108,7 @@ function Home() {
       <SearchForm
         onHandleFormSubmit={onHandleFormSubmit}
         onHandleInputChange={onHandleInputChange}
+        clearForm={clearForm}
         name={searchState.employees}
         style={{ display: searchState.length ? "flex" : "none" }}
         length={searchState.length}

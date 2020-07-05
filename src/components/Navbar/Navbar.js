@@ -11,11 +11,14 @@ function Navbar() {
       </div>
       <div className="h-8 bg-gray-900 flex border-gray-600 border-b-2 text-white">
       <div className="text-left w-1/2">
-        <span className="block ml-4 hover:text-orange-400 hover:underline">
+        <span className="block ml-8 hover:text-orange-400 hover:underline">
           <Link
             to="/"
             className={
-              window.location.pathname === "/" || window.location.pathname === "/home" ? "text-red-500" : "text-white"}>Home</Link>
+              window.location.pathname === "/" || window.location.pathname === "/search" ? "text-red-500" : "text-white"}>
+                <i className="fa fa-search mx-2" aria-hidden="true"></i>
+                Search
+                </Link>
         </span>
       </div>
       <div className="block w-1/2 text-right mr-4">
@@ -24,6 +27,7 @@ function Navbar() {
           className={window.location.pathname === "/departments" ? "text-red-500" : "text-white"}
         >
           <span className="mx-4 hover:text-orange-400 hover:underline">
+          <i className="far fa-building mx-2"></i>
             Departments
           </span>
         </Link>
@@ -32,6 +36,7 @@ function Navbar() {
           className={window.location.pathname === "/roles"  ? "text-red-500" : "text-white"}
         >
           <span className="mx-4 hover:text-orange-400 hover:underline">
+          <i className="fas fas fa-tools mx-2"></i>
             Roles
           </span>
         </Link>
@@ -40,6 +45,7 @@ function Navbar() {
           className={window.location.pathname === "/employees" ? "text-red-500" : "text-white"}
         >
           <span className="mx-4 hover:text-orange-400 hover:underline">
+          <i className="fas fa-user-cog mx-2"></i>
             Employees
           </span>
         </Link>
