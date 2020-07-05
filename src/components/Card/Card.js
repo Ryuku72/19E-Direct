@@ -4,7 +4,7 @@ import "./style.css";
 function Card(props) {
   return (
     <div className="card border-blue-900 border-2 m-2 rounded-lg">
-      <div className="content p-4 capitalize">
+      <div className="content p-3 capitalize">
         <ul>
           <li>
             <strong>Name:</strong> {props.name}

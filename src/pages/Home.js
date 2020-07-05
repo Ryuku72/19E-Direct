@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Card from "../components/Card/Card";
-import Data from "../company.json";
 import SearchForm from "../components/Searchform/SearchForm";
+import Alert from "../components/Alert/Alert";
+import Data from "../company.json";
 
 function numberWithCommas(x) {
   var parts = x.toString().split(".");
@@ -15,7 +16,7 @@ const newArray = Data.map(function(result, i) {
       department: result.department.toLowerCase(),
       role: result.role.toLowerCase(),
       manager: result.manager.toLowerCase(),
-      salary: numberWithCommas(result.salary),
+      salary: numberWithCommas((result.salary)),
       email: result.email.toLowerCase()
   };
 });
@@ -23,24 +24,18 @@ const newArray = Data.map(function(result, i) {
 const nameArray = Data.map(result => {
   return result.name
 })
-
 const departArray = Data.map(result => {
   return result.department
 })
-
 const departments = [...new Set(departArray)];
-console.log(departments)
+
 
 const roleArray = Data.map(result => {
   return result.role
 })
-
 const roles = [...new Set(roleArray)];
-console.log(roles)
 
 const database = nameArray.concat(departments, roles)
-
-console.log(database)
 
 function Home() {
 
@@ -104,11 +99,13 @@ function Home() {
   return (
     <div>
       <SearchForm
-
         onHandleFormSubmit={onHandleFormSubmit}
         onHandleInputChange={onHandleInputChange}
         name={searchState.employees}
       />
+       <Alert 
+       
+       />
       <div className="p-6 grid grid-cols-3 gap-3">
       {searchState.results.map(result => (
         <Card
