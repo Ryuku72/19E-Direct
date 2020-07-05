@@ -12,7 +12,7 @@ import Wrapper from "./components/Wrapper/Wrapper";
 function App() {
   return (
     <Router>
-      <div>
+      <div className="flex flex-col">
           <Navbar />
         <Wrapper> 
           <Route exact path="/" component={Home} />

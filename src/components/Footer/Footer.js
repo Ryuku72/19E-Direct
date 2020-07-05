@@ -3,8 +3,8 @@ import "./style.css";
 
 function Footer() {
   return (
-    <footer className="footer">
-      <span className="text-3xl">Foreign Toolkit</span>
+    <footer className="footer w-full flex flex-col my-auto mt-auto mb-0 w justify-center items-end bg-gray-900 p-2">
+      <span className="text-lg mr-2 text-pink-700 font-mono">{'//'} JoshuaKB </span>
     </footer>
   );
 }
