@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import Card from "../components/Card/Card";
 import Data from "../company.json";
 import SearchForm from "../components/Searchform/SearchForm";
@@ -25,16 +25,28 @@ const nameArray = Data.map(result => {
 })
 
 const departArray = Data.map(result => {
-  return result.name
+  return result.department
 })
 
-console.log(nameArray)
+const departments = [...new Set(departArray)];
+console.log(departments)
+
+const roleArray = Data.map(result => {
+  return result.role
+})
+
+const roles = [...new Set(roleArray)];
+console.log(roles)
+
+const database = nameArray.concat(departments, roles)
+
+console.log(database)
 
 function Home() {
 
  const initialState = {
   search: "",
-  employees: nameArray,
+  employees: database,
   results: [],
   error: "",
  }
