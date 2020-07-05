@@ -44,6 +44,7 @@ function Home() {
   employees: database,
   results: [],
   error: "",
+  length: 0
  }
 
  const unknownUser = [{
@@ -87,7 +88,7 @@ function Home() {
       setSearchState({ ...searchState, error: "No Employee // Role // Department Found !!!", results: unknownUser
     })
     } else {
-      setSearchState({ ...searchState, results: searchResult, error: ""})
+      setSearchState({ ...searchState, results: searchResult, error: "", length: searchResult.length})
     }   
 
   }
@@ -103,6 +104,8 @@ function Home() {
         onHandleFormSubmit={onHandleFormSubmit}
         onHandleInputChange={onHandleInputChange}
         name={searchState.employees}
+        style={{ display: searchState.length ? "flex" : "none" }}
+        length={searchState.length}
       />
        <Alert
         style={{ height: searchState.error ? "3rem" : "0"}}
@@ -121,6 +124,7 @@ function Home() {
           salary={result.salary}
           email={result.email}
           onHandleRemove={onHandleRemove}
+          style={{ display: searchState.length ? "block" : "none" }}
         />
       ))}
       </div>
