@@ -69,7 +69,7 @@ function Home() {
   function onHandleFormSubmit(event) {
     event.preventDefault();
     
-    let searchResult = newArray.filter(obj => {
+    let searchResult = newArray.filter(function(obj){
       //loop through each object
         for (Object.key in obj) {
           //check if object value contains value you are looking for
@@ -79,6 +79,7 @@ function Home() {
             }
         }
         cancelCourse()
+        return null;
     });
   
     if (searchResult.length === 0 || searchResult === undefined){
