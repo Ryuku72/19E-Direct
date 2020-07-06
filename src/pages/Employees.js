@@ -41,7 +41,7 @@ function Employees() {
     return (
       <div className="mb-2">
         <div className="border-gray-600 border-b-2">
-        <h1 className="text-3xl font-mono">{'//'}EMPLOYEES</h1>
+    <h1 className="text-3xl font-mono">{'//'}EMPLOYEES: {employee.length}</h1>
         <p className="font-mono text-right leading-loose text-lg text-blue-600"><span className="text-gray-500">2020</span>{'//'}DIRECTORY</p>
       </div>
       {state.employees.map(result => (
