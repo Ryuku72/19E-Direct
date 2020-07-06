@@ -115,10 +115,7 @@ for (var i = 0; i < departments.length; i++) {
 function Departments() {
   const initialState = {
     department: departmentArray
-  }
-
-  console.log()
-  
+  } 
   const [state] = useState(initialState);
 
     return (
@@ -131,11 +128,12 @@ function Departments() {
         {state.department.map(result => (
           <List 
           key = {result.name}
-          department= {result.name}
           manager= {result.manager}
           employees= {result.number}
           salary= {result.salary}
-          />
+          >
+          <h1><strong>Department:</strong> {result.name}</h1>
+          </List>
         ))}
         </div>
       </div>
