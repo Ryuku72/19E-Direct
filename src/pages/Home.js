@@ -48,15 +48,6 @@ function Home() {
   length: 0
  }
 
- const unknownUser = [{
-    name: "Unknown",
-    department: "Unknown",
-    role: "Unknown",
-    salary: "0",
-    manager: "Unknown",
-    email: ""
-  }];
-
   const [searchState, setSearchState] = useState(initialState);
 
   function onHandleInputChange(event) {
@@ -90,7 +81,7 @@ function Home() {
     });
   
     if (searchResult.length === 0 || searchResult === undefined){
-      setSearchState({ ...searchState, error: "Alert: No Results", results: unknownUser
+      setSearchState({ ...searchState, error: "Alert: No Results", length: 0
     })
     } else {
       setSearchState({ ...searchState, results: searchResult, error: "", length: searchResult.length})
@@ -115,9 +106,11 @@ function Home() {
         {searchState.error}
         </ SearchForm>
        <Hero className="h-screen" 
-        style={{ display: searchState.length ? "none" : "flex", width: "100%",
-        height: "75vh",
+        pStyle={{ opacity: searchState.length ? "0" : "1", height: searchState.length ? "0vh" : "75vh", padding: searchState.length ? "0em" : "2.5rem", width: "100%"}}
+        style={{ opacity: searchState.length ? "0" : "1", width: "100%",
+        height: searchState.length ? "0vh" : "75vh",
         backgroundImage: `url(${Background})` }}/>
+       
       <div className="grid grid-cols-3 gap-3">
       {searchState.results.map(result => (
         <Card

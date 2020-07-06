@@ -2,7 +2,7 @@ import React from "react";
 
 function SearchForm(props) {
   return (
-    <div className="flex w-full">
+    <div className="flex w-full z-20">
     <form id="create-course-form" className="w-full">
       <div className="form-group flex h-10">
         <label htmlFor="employee" className="flex text-base items-end"></label>
