@@ -1,7 +1,7 @@
 [
   {
     "name": "Joshua K Bader",
-    "department": "Corperate",
+    "department": "Common",
     "role": "Chairman",
     "manager": "Joshua K Bader",
     "salary": "520000",
@@ -385,7 +385,7 @@
   },
   {
     "name": "Kokomi Bader",
-    "department": "Corperate",
+    "department": "Common",
     "role": "Vice Chairman",
     "manager": "Joshua K Bader",
     "salary": "420890",
