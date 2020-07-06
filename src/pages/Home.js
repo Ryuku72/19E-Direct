@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import Card from "../components/Card/Card";
 import SearchForm from "../components/Searchform/SearchForm";
 import Alert from "../components/Alert/Alert";
+import Hero from "../components/Hero/Hero"
 import Data from "../company.json";
+import Background from "../assets/wallpaper.jpg"
 
 function numberWithCommas(x) {
   var parts = x.toString().split(".");
@@ -95,7 +97,6 @@ function Home() {
     } else {
       setSearchState({ ...searchState, results: searchResult, error: "", length: searchResult.length})
     }   
-
   }
 
   function onHandleRemove(key) {
@@ -119,7 +120,11 @@ function Home() {
       {searchState.error}
       
        </Alert>
-      <div className="p-6 grid grid-cols-3 gap-3">
+       <Hero className="h-screen" 
+        style={{ display: searchState.length ? "none" : "flex", width: "100%",
+        height: "75vh",
+        backgroundImage: `url(${Background})` }}/>
+      <div className="grid grid-cols-3 gap-3">
       {searchState.results.map(result => (
         <Card
           name={result.name}

@@ -1,0 +1,9 @@
+.pMarker {
+    font-family: 'Permanent Marker', cursive;
+    color: white;
+    text-shadow:
+    -5px -5px 0 rgb(196, 114, 193),  
+     5px -5px 0 rgb(102, 127, 191),
+     -5px 5px 0 rgb(102, 191, 138),
+      5px 5px 0 rgb(191, 188, 102);
+}
