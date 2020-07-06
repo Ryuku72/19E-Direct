@@ -130,10 +130,10 @@ function Departments() {
           <List 
           key = {result.name}
           manager= {result.manager}
-          employees= {result.number}
           salary= {result.salary}
           >
           <h1><strong>Department:</strong> {result.name}</h1>
+          <p><strong>Employees:</strong> {result.number}</p>
           </List>
         ))}
         </div>
