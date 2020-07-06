@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Card from "../components/Card/Card";
 import SearchForm from "../components/Searchform/SearchForm";
-import Alert from "../components/Alert/Alert";
 import Hero from "../components/Hero/Hero"
 import Data from "../company.json";
 import Background from "../assets/wallpaper.jpg"
@@ -91,8 +90,7 @@ function Home() {
     });
   
     if (searchResult.length === 0 || searchResult === undefined){
-      console.log("empty")
-      setSearchState({ ...searchState, error: "No Employee // Role // Department Found !!!", results: unknownUser
+      setSearchState({ ...searchState, error: "Alert: No Results", results: unknownUser
     })
     } else {
       setSearchState({ ...searchState, results: searchResult, error: "", length: searchResult.length})
@@ -103,7 +101,6 @@ function Home() {
     const employees = searchState.results.filter((result) => result.name !== key);
     setSearchState({...searchState, results: employees});
   }
-
   return (
     <div>
       <SearchForm
@@ -111,15 +108,12 @@ function Home() {
         onHandleInputChange={onHandleInputChange}
         clearForm={clearForm}
         name={searchState.employees}
-        style={{ display: searchState.length ? "flex" : "none" }}
+        style={{ opacity: searchState.length ? "1" : "0" }}
         length={searchState.length}
-      />
-       <Alert
-        style={{ height: searchState.error ? "3rem" : "0"}}
-       >
-      {searchState.error}
-      
-       </Alert>
+        alert={{ opacity: searchState.error ? "1" : "0"}}
+        >  
+        {searchState.error}
+        </ SearchForm>
        <Hero className="h-screen" 
         style={{ display: searchState.length ? "none" : "flex", width: "100%",
         height: "75vh",
@@ -135,7 +129,7 @@ function Home() {
           salary={result.salary}
           email={result.email}
           onHandleRemove={onHandleRemove}
-          style={{ display: searchState.length ? "block" : "none" }}
+          style={{ display: searchState.length ? "block" : "none", opacity: searchState.length ? "1" : "0"  }}
         />
       ))}
       </div>

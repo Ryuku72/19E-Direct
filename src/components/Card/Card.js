@@ -3,7 +3,7 @@ import "./style.css";
 
 function Card(props) {
   return (
-    <div className="card border-blue-900 border-2 rounded-lg mt-4" style={{...props.style}}>
+    <div className="card border-blue-900 border-2 rounded-lg mt-4 transition duration-700 ease-out" style={{...props.style}}>
       <div className="content p-3 capitalize">
         <ul>
           <li>
