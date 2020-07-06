@@ -115,7 +115,8 @@ for (var i = 0; i < departments.length; i++) {
 function Departments() {
   const initialState = {
     department: departmentArray
-  } 
+  }
+ 
   const [state] = useState(initialState);
 
     return (

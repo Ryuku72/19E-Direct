@@ -1,8 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 function Navbar() {
+  //Location is the state for the page
+  const location = useLocation();
   return (
     <nav className="h-20">
       <div className="w-full flex justify-center bg-gray-900 p-2">

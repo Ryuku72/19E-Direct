@@ -55,7 +55,7 @@ for (var i = 0; i < roles.length; i++) {
 // console.log(managers)
 // console.log(roleNumberArray)
 // console.log(wage)
-console.log(rolesArray)
+// console.log(rolesArray)
 
 function Roles() {
   const initialState = {
@@ -73,10 +73,10 @@ function Roles() {
      <List
      key = {result.name}
      manager= {result.manager}
-     employees= {result.number}
      salary= {result.salary}
      >
     <h1><strong>Role:</strong> {result.name}</h1>
+    <p><strong>Positions:</strong> {result.number}</p>
      </List>
        ))}
       </div>
