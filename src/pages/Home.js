@@ -41,13 +41,13 @@ const database = nameArray.concat(departments, roles)
 function Home() {
 
  const initialState = {
-  search: "",
+  search: JSON.stringify(""),
   employees: database,
   results: [],
   error: "",
   length: 0,
-  sort: "Sort",
-  order: "Order"
+  sort: "Sort By",
+  order: "Order By"
  }
 
   const [searchState, setSearchState] = useState(initialState);
@@ -55,7 +55,7 @@ function Home() {
  
   function onHandleInputChange(event) {
     event.preventDefault();
-    console.log(event.target)
+    //console.log(event.target)
     setSearchState({ ...searchState, search: JSON.stringify(event.target.value.trim().toLowerCase()) });
   }
 
@@ -70,38 +70,205 @@ function Home() {
 
   function onHandleSort(event){
     event.preventDefault();
-    console.log(event.target.innerText)
-    setSearchState({ ...searchState, sort: event.target.innerText })
+    //console.log("clicked")
+    //console.log(event.target.name)
+    setSearchState({ ...searchState, sort: event.target.name })
   }
 
   function onHandleOrder(event){
     event.preventDefault();
-    console.log(event.target.innerText)
-    setSearchState({ ...searchState, order: event.target.innerText})
+    //console.log("clicked")
+    //console.log(event.target.name)
+    setSearchState({ ...searchState, order: event.target.name})
   }
   
+  function compareValues(key, order = 'asc') {
+    return function innerSort(a, b) {
+      if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
+        // property doesn't exist on either object
+        return 0;
+      }
+  
+      const varA = (typeof a[key] === 'string')
+        ? a[key].toUpperCase() : a[key];
+      const varB = (typeof b[key] === 'string')
+        ? b[key].toUpperCase() : b[key];
+  
+      let comparison = 0;
+      if (varA > varB) {
+        comparison = 1;
+      } else if (varA < varB) {
+        comparison = -1;
+      }
+      return (
+        (order === 'desc') ? (comparison * -1) : comparison
+      );
+    };
+  }
+
   function onHandleFormSubmit(event) {
     event.preventDefault();
-    
-    let searchResult = newArray.filter(function(obj){
-      //loop through each object
-        for (Object.key in obj) {
-          //check if object value contains value you are looking for
-          if (obj[Object.key].includes(JSON.parse(searchState.search))) {
-            //add this object to the filtered array
-            return obj;
-            }
+
+  const entry = JSON.stringify("")
+
+  let searchResult = newArray.filter(function(obj){
+    //loop through each object
+      for (Object.key in obj) {
+        //check if object value contains value you are looking for
+        if (obj[Object.key].includes(JSON.parse(searchState.search))) {
+          //add this object to the filtered array
+          return obj;
         }
-        cancelCourse()
-        return null;
-    });
+      }
+      cancelCourse()
+      return null;
+  });
+
+  if (searchResult.length === 0 || searchResult === undefined ){
+    setSearchState({ ...searchState, error: "Alert: No Results Found", length: 0
+  })
+}
+else if (searchState.search === entry && searchState.sort === "Sort By" && searchState.order === "Order By"){
+  //console.log("All Triggered")
+  setSearchState({ ...searchState, results: searchResult, error: "", length: searchResult.length
+})
+ }
+   else if (searchState.search === entry && searchState.sort === "Descend" && searchState.order === "Order By"){
+    //console.log("Descend Triggered")
+    let repArray = searchResult.sort(compareValues('name', 'desc'))
+    setSearchState({ ...searchState, results: repArray, error: "", length: searchResult.length
+    
+  })
+   }
+  else if (searchState.search === entry && searchState.sort === "Ascend" && searchState.order === "Order By"){
+    //console.log("Ascend Triggered")
+    let repArray = searchResult.sort(compareValues('name'))
+    setSearchState({ ...searchState, results: repArray, error: "", length: searchResult.length
+  })
+  } 
+  else if (searchState.search === entry && searchState.sort === "Descend" && searchState.order === "Department"){
+    //console.log("Department Descend Triggered")
+    let repArray = searchResult.sort(compareValues('department', 'desc'))
+    setSearchState({ ...searchState, results: repArray, error: "", length: searchResult.length
+  })
+   }
+  else if (searchState.search === entry && searchState.sort === "Ascend" && searchState.order === "Department"){
+    //console.log("Department Ascend Triggered")
+    let repArray = searchResult.sort(compareValues('department'))
+    setSearchState({ ...searchState, results: repArray, error: "", length: searchResult.length
+  })
+  } 
+  else if (searchState.search === entry && searchState.sort === "Descend" && searchState.order === "Role"){
+    //console.log("Role Descend Triggered")
+    let repArray = searchResult.sort(compareValues('role', 'desc'))
+    setSearchState({ ...searchState, results: repArray, error: "", length: searchResult.length
+  })
+   }
+  else if (searchState.search === entry && searchState.sort === "Ascend" && searchState.order === "Role"){
+    //console.log("Role Ascend Triggered")
+    let repArray = searchResult.sort(compareValues('role'))
+    setSearchState({ ...searchState, results: repArray, error: "", length: searchResult.length
+  })
+  }
+  else if (searchState.search === entry && searchState.sort === "Descend" && searchState.order === "Manager"){
+    //console.log("Manager Descend Triggered")
+    let repArray = searchResult.sort(compareValues('manager', 'desc'))
+    setSearchState({ ...searchState, results: repArray, error: "", length: searchResult.length
+  })
+   }
+  else if (searchState.search === entry && searchState.sort === "Ascend" && searchState.order === "Manager"){
+    //console.log("Manager Ascend Triggered")
+    let repArray = searchResult.sort(compareValues('manager'))
+    setSearchState({ ...searchState, results: repArray, error: "", length: searchResult.length
+  })
+  }
+
   
-    if (searchResult.length === 0 || searchResult === undefined){
-      setSearchState({ ...searchState, error: "Alert: No Results Found", length: 0
+
+
+     else if (searchState.search !== entry && searchState.sort === "Descend" && searchState.order === "Order By"){
+      //console.log("Descend Triggered")
+      let repArray = searchResult.sort(compareValues('name', 'desc'))
+      setSearchState({ ...searchState, results: repArray, error: "", length: searchResult.length
+      
     })
-    } else {
-      setSearchState({ ...searchState, results: searchResult, error: "", length: searchResult.length})
-    }   
+     }
+    else if (searchState.search !== entry && searchState.sort === "Ascend" && searchState.order === "Order By"){
+      //console.log("Ascend Triggered")
+      let repArray = searchResult.sort(compareValues('name'))
+      setSearchState({ ...searchState, results: repArray, error: "", length: searchResult.length
+    })
+    } 
+
+
+
+    else if (searchState.search !== entry && searchState.sort === "Descend" && searchState.order === "Department"){
+      //console.log("Department Descend Triggered")
+      let repArray = searchResult.sort(compareValues('department', 'desc'))
+      setSearchState({ ...searchState, results: repArray, error: "", length: searchResult.length
+    })
+     }
+    else if (searchState.search !== entry && searchState.sort === "Ascend" && searchState.order === "Department"){
+      //console.log("Department Ascend Triggered")
+      let repArray = searchResult.sort(compareValues('department'))
+      setSearchState({ ...searchState, results: repArray, error: "", length: searchResult.length
+    })
+    } 
+    else if (searchState.search !== entry && searchState.sort === "Sort By" && searchState.order === "Department"){
+      //console.log("Department Ascend Sort Triggered")
+      let repArray = searchResult.sort(compareValues('department'))
+      setSearchState({ ...searchState, results: repArray, error: "", length: searchResult.length
+    })
+    } 
+
+
+
+    else if (searchState.search === entry && searchState.sort === "Descend" && searchState.order === "Role"){
+      //console.log("Role Descend Triggered")
+      let repArray = searchResult.sort(compareValues('role', 'desc'))
+      setSearchState({ ...searchState, results: repArray, error: "", length: searchResult.length
+    })
+     }
+    else if (searchState.search === entry && searchState.sort === "Ascend" && searchState.order === "Role"){
+      //console.log("Role Ascend Triggered")
+      let repArray = searchResult.sort(compareValues('role'))
+      setSearchState({ ...searchState, results: repArray, error: "", length: searchResult.length
+    })
+    }
+
+    else if (searchState.search === entry && searchState.sort === "Sort By" && searchState.order === "Role"){
+      //console.log("Role Ascend Sort Triggered")
+      let repArray = searchResult.sort(compareValues('role'))
+      setSearchState({ ...searchState, results: repArray, error: "", length: searchResult.length
+    })
+    }
+
+    else if (searchState.search === entry && searchState.sort === "Descend" && searchState.order === "Manager"){
+      //console.log("Manager Descend Triggered")
+      let repArray = searchResult.sort(compareValues('manager', 'desc'))
+      setSearchState({ ...searchState, results: repArray, error: "", length: searchResult.length
+    })
+     }
+    else if (searchState.search === entry && searchState.sort === "Ascend" && searchState.order === "Manager"){
+      //console.log("Manager Ascend Triggered")
+      let repArray = searchResult.sort(compareValues('manager'))
+      setSearchState({ ...searchState, results: repArray, error: "", length: searchResult.length
+    })
+    }
+
+    else if (searchState.search === entry && searchState.sort === "Sort By" && searchState.order === "Manager"){
+      //console.log("Manager Ascend Sort Triggered")
+      let repArray = searchResult.sort(compareValues('manager'))
+      setSearchState({ ...searchState, results: repArray, error: "", length: searchResult.length
+    })
+    }
+
+    else{
+      //console.log("! All Triggered")
+      setSearchState({ ...searchState, results: searchResult, error: "", length: searchResult.length
+    })
+     }
+ 
   }
 
   function onHandleRemove(key) {
@@ -127,7 +294,7 @@ function Home() {
         </ SearchForm>
        <Hero className="h-screen" 
         pStyle={{ opacity: searchState.length ? "0" : "1", height: searchState.length ? "0vh" : "75vh", padding: searchState.length ? "0em" : "2.5rem", width: "100%"}}
-        style={{ opacity: searchState.length ? "0" : "1", width: "100%",
+        style={{ opacity: searchState.length ? "0" : "1", width: searchState.length ? "0%" : "100%",
         height: searchState.length ? "0vh" : "75vh",
         backgroundImage: `url(${Background})` }}
         />
