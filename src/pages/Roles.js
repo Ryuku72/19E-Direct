@@ -57,6 +57,7 @@ for (var i = 0; i < roles.length; i++) {
 // console.log(wage)
 // console.log(rolesArray)
 
+
 function Roles() {
   const initialState = {
     role: rolesArray

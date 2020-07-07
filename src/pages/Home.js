@@ -81,7 +81,7 @@ function Home() {
     });
   
     if (searchResult.length === 0 || searchResult === undefined){
-      setSearchState({ ...searchState, error: "Alert: No Results", length: 0
+      setSearchState({ ...searchState, error: "Alert: No Results Found", length: 0
     })
     } else {
       setSearchState({ ...searchState, results: searchResult, error: "", length: searchResult.length})

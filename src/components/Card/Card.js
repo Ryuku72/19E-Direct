@@ -3,7 +3,7 @@ import "./style.css";
 
 function Card(props) {
   return (
-    <div className="card border-blue-900 border-2 rounded-lg mt-4 transition duration-700 ease-out" style={{...props.style}}>
+    <div className="card block relative border-blue-900 border-2 rounded-lg mt-4 transition duration-700 ease-in" style={{...props.style}}>
       <div className="content p-3 capitalize">
         <ul>
           <li>
@@ -27,8 +27,8 @@ function Card(props) {
         
         </ul>
       </div>
-      <div className="flex justify-end mx-2 mb-1">
-        <button onClick={() => props.onHandleRemove(props.name)} className="text-red-700 text-xl m-1 w-10 flex justify-center ">
+      <div className="absolute bottom-0 right-0 m-3">
+        <button onClick={() => props.onHandleRemove(props.name)} className="text-red-700 text-xl m-1 w-10 flex justify-center">
       <i className="fas fa-trash-alt"></i></button>
       </div>
     </div>
