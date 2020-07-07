@@ -4,8 +4,8 @@ import "./style.css"
 function SearchForm(props) {
   return (
     <div className="flex w-full z-20">
-    <form id="create-course-form" className="w-3/5">
-      <div className="form-group w-full inline-flex h-10">
+    <form id="create-course-form" className="w-3/5 inline-flex">
+      <div className="form-group inline-flex w-full h-10">
         <label htmlFor="employee" className="inline-flex text-base items-end"></label>
         <div className="border-2 w-2/3 mr-2 shadow-lg p-1 inline-flex align-middle items-center">
         <div className="border-r-2 h-full w-1/12 inline-flex justify-center items-center">
@@ -21,6 +21,12 @@ function SearchForm(props) {
           id="employee"
           className="w-full h-full px-2 ml-2 outline-none"
         />
+        <ul className="dropdown-menu absolute hidden text-gray-700 pt-1">
+      <li className="">
+        <a className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" >
+          One
+          </a></li>
+      </ul>
         </div>
         <datalist id="employees">
           {props.name.map(result => (
@@ -28,51 +34,46 @@ function SearchForm(props) {
           ))} 
         </datalist>
 
-  {/* <div className="dropdown inline-block relative">
-    <button className="bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded inline-flex items-center">
-      <span className="mr-1">Sort By</span>
-      <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
+  <div className="dropdown relative">
+    <button className="bg-pink-300 text-gray-700 font-semibold py-2 px-4 rounded inline-block items-center">
+     Sort
     </button>
-    <ul className="dropdown-menu absolute hidden text-gray-700 pt-1">
+    <ul className="dropdown-menu absolute hidden text-gray-700 pt-2">
       <li className="">
         <a className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" >
-          One
+          Department
           </a></li>
       <li className="">
         <a className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">
-          Two</a></li>
+          Role</a></li>
       <li className="">
         <a className="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">
-          Three is the magic number</a></li>
+          Salary</a></li>
     </ul>
   </div>
 
-  <div className="ml-2 dropdown inline-block relative">
-    <button className="bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded inline-flex items-center">
-      <span className="mr-1">Order By</span>
-      <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
+  <div className="ml-2 dropdown relative">
+    <button className="bg-yellow-300 text-gray-700 font-semibold py-2 px-4 rounded inline-block items-center">
+      Order
     </button>
-    <ul className="dropdown-menu absolute hidden text-gray-700 pt-1">
+    <ul className="dropdown-menu absolute hidden text-gray-700 pt-2">
       <li className="">
         <a className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" >
-          One
+          Ascending
           </a></li>
       <li className="">
         <a className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">
-          Two</a></li>
-      <li className="">
-        <a className="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">
-          Three is the magic number</a></li>
+          Descending</a></li>
     </ul>
-  </div> */}
+  </div>
 
         <button type="submit" 
         onClick={props.onHandleFormSubmit} 
-        className="mx-2 bg-green-300 text-gray-700 font-semibold py-2 px-4 rounded inline-flex items-center">
+        className="mx-2 bg-green-300 text-gray-700 font-semibold py-2 px-4 rounded inline-block items-center">
           Search
         </button>
 
-        <button type="reset" className="bg-purple-300 text-gray-700 font-semibold py-2 px-4 rounded inline-flex items-center" onClick={props.clearForm}>Reset</button>
+        <button type="reset" className="bg-purple-300 text-gray-700 font-semibold py-2 px-4 rounded inline-block items-center" onClick={props.clearForm}>Reset</button>
       </div>
     </form>
 
