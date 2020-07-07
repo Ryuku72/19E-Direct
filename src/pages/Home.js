@@ -59,10 +59,6 @@ function Home() {
     setSearchState({ ...searchState, search: JSON.stringify(event.target.value.trim().toLowerCase()) });
   }
 
-  function cancelCourse(){ 
-    document.getElementById("create-course-form").reset();
-  }
-
   function clearForm(){
     document.getElementById("create-course-form").reset();
     setSearchState(initialState)
@@ -120,7 +116,6 @@ function Home() {
           return obj;
         }
       }
-      cancelCourse()
       return null;
   });
 
