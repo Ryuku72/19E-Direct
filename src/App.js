@@ -1,4 +1,5 @@
 import React from "react";
+import "./components/fontawesome"
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Departments from "./pages/Departments";

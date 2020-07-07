@@ -33,16 +33,16 @@ function compareValues(key, order = 'asc') {
 }
 
 // array is sorted by department, in ascending order by default
-console.log(Data.sort(compareValues('department')));
+//console.log(Data.sort(compareValues('department')));
 
 // array is sorted by band in descending order
-console.log(Data.sort(compareValues('roles', 'desc')));
+//console.log(Data.sort(compareValues('roles', 'desc')));
 
 // array is sorted by name in ascending order
-console.log(Data.sort(compareValues('name')));
+//console.log(Data.sort(compareValues('name')));
 
 // array is sorted by date if birth in descending order
-console.log(Data.sort(compareValues('salary', 'desc')));
+//console.log(Data.sort(compareValues('salary', 'desc')));
 
 const employee = Data.sort(compareValues('name')).map(result => {
   return {

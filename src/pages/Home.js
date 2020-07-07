@@ -45,13 +45,17 @@ function Home() {
   employees: database,
   results: [],
   error: "",
-  length: 0
+  length: 0,
+  sort: "Sort",
+  order: "Order"
  }
 
   const [searchState, setSearchState] = useState(initialState);
 
+ 
   function onHandleInputChange(event) {
     event.preventDefault();
+    console.log(event.target)
     setSearchState({ ...searchState, search: JSON.stringify(event.target.value.trim().toLowerCase()) });
   }
 
@@ -62,6 +66,18 @@ function Home() {
   function clearForm(){
     document.getElementById("create-course-form").reset();
     setSearchState(initialState)
+  }
+
+  function onHandleSort(event){
+    event.preventDefault();
+    console.log(event.target.innerText)
+    setSearchState({ ...searchState, sort: event.target.innerText })
+  }
+
+  function onHandleOrder(event){
+    event.preventDefault();
+    console.log(event.target.innerText)
+    setSearchState({ ...searchState, order: event.target.innerText})
   }
   
   function onHandleFormSubmit(event) {
@@ -102,6 +118,10 @@ function Home() {
         style={{ opacity: searchState.length ? "1" : "0" }}
         length={searchState.length}
         alert={{ opacity: searchState.error ? "1" : "0"}}
+        order={searchState.order}
+        onHandleOrder={onHandleOrder}
+        sort={searchState.sort}
+        onHandleSort={onHandleSort}
         >  
         {searchState.error}
         </ SearchForm>
@@ -109,8 +129,8 @@ function Home() {
         pStyle={{ opacity: searchState.length ? "0" : "1", height: searchState.length ? "0vh" : "75vh", padding: searchState.length ? "0em" : "2.5rem", width: "100%"}}
         style={{ opacity: searchState.length ? "0" : "1", width: "100%",
         height: searchState.length ? "0vh" : "75vh",
-        backgroundImage: `url(${Background})` }}/>
-       
+        backgroundImage: `url(${Background})` }}
+        />
       <div className="grid grid-cols-3 gap-3">
       {searchState.results.map(result => (
         <Card

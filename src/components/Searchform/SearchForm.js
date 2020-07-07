@@ -1,7 +1,9 @@
-import React from "react";
+import React from 'react';
 import "./style.css"
+import Dropdown from "../Dropdown/Dropdown"
 
 function SearchForm(props) {
+
   return (
     <div className="flex w-full z-20">
     <form id="create-course-form" className="w-3/5 inline-flex">
@@ -22,8 +24,8 @@ function SearchForm(props) {
           className="w-full h-full px-2 ml-2 outline-none"
         />
         <ul className="dropdown-menu absolute hidden text-gray-700 pt-1">
-      <li className="">
-        <a className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" >
+      <li>
+        <a href='/#' className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" >
           One
           </a></li>
       </ul>
@@ -34,47 +36,41 @@ function SearchForm(props) {
           ))} 
         </datalist>
 
-  <div className="dropdown relative">
-    <button className="bg-pink-300 text-gray-700 font-semibold py-2 px-4 rounded inline-block items-center">
-     Sort
-    </button>
-    <ul className="dropdown-menu absolute hidden text-gray-700 pt-2">
-      <li className="">
-        <a className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" >
-          Department
-          </a></li>
-      <li className="">
-        <a className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">
-          Role</a></li>
-      <li className="">
-        <a className="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">
-          Salary</a></li>
-    </ul>
-  </div>
-
-  <div className="ml-2 dropdown relative">
-    <button className="bg-yellow-300 text-gray-700 font-semibold py-2 px-4 rounded inline-block items-center">
-      Order
-    </button>
-    <ul className="dropdown-menu absolute hidden text-gray-700 pt-2">
-      <li className="">
-        <a className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" >
-          Ascending
-          </a></li>
-      <li className="">
-        <a className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">
-          Descending</a></li>
-    </ul>
-  </div>
-
-        <button type="submit" 
-        onClick={props.onHandleFormSubmit} 
+        <button type="submit" onClick={props.onHandleFormSubmit} 
         className="mx-2 bg-green-300 text-gray-700 font-semibold py-2 px-4 rounded inline-block items-center">
-          Search
-        </button>
+          Search</button>
 
-        <button type="reset" className="bg-purple-300 text-gray-700 font-semibold py-2 px-4 rounded inline-block items-center" onClick={props.clearForm}>Reset</button>
-      </div>
+        <button type="reset" onClick={props.clearForm}
+        className="mr-2 bg-purple-300 text-gray-700 font-semibold py-2 px-4 rounded inline-block items-center">
+          Reset</button>
+            <Dropdown style={{backgroundColor:"#fbb6ce"}} title={props.sort}>
+
+            <ul className="dropdown-menu absolute text-gray-700 pt-2">
+              <li>
+                <a href="/" className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" value="ascend" onClick={props.onHandleSort}>
+                  <i className="fas fa-arrow-up mx-2" aria-hidden="true"></i>Ascend
+                  </a></li>
+              <li>
+                <a href="/" className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" value="descend" onClick={props.onHandleSort}>
+                <i className="fas fa-arrow-down mx-2" aria-hidden="true"></i>Descend</a></li>
+            </ul>
+            </Dropdown>
+            <Dropdown style={{backgroundColor:"#90cdf4"}} title={props.order}>
+            <ul className="dropdown-menu absolute text-gray-700 pt-2">
+              <li>
+                <a href="/" className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={props.onHandleOrder}>
+                <i className="far fa-building mx-2"></i>Department
+                  </a></li>
+              <li>
+                <a href="/" className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={props.onHandleOrder}>
+                <i className="fas fas fa-tools mx-2"></i>Role</a></li>
+              <li>
+                <a href="/" className="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={props.onHandleOrder}>
+                <i className="fas fa-wallet mx-2"></i>Salary</a></li>
+            </ul>
+            </Dropdown>
+
+  </div>
     </form>
 
 {/* Alerts */}
