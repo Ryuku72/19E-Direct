@@ -51,7 +51,6 @@ function Home() {
  }
 
   const [searchState, setSearchState] = useState(initialState);
-
  
   function onHandleInputChange(event) {
     event.preventDefault();
@@ -218,40 +217,40 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
 
 
 
-    else if (searchState.search === entry && searchState.sort === "Descend" && searchState.order === "Role"){
+    else if (searchState.search !== entry && searchState.sort === "Descend" && searchState.order === "Role"){
       //console.log("Role Descend Triggered")
       let repArray = searchResult.sort(compareValues('role', 'desc'))
       setSearchState({ ...searchState, results: repArray, error: "", length: searchResult.length
     })
      }
-    else if (searchState.search === entry && searchState.sort === "Ascend" && searchState.order === "Role"){
+    else if (searchState.search !== entry && searchState.sort === "Ascend" && searchState.order === "Role"){
       //console.log("Role Ascend Triggered")
       let repArray = searchResult.sort(compareValues('role'))
       setSearchState({ ...searchState, results: repArray, error: "", length: searchResult.length
     })
     }
 
-    else if (searchState.search === entry && searchState.sort === "Sort By" && searchState.order === "Role"){
+    else if (searchState.search !== entry && searchState.sort === "Sort By" && searchState.order === "Role"){
       //console.log("Role Ascend Sort Triggered")
       let repArray = searchResult.sort(compareValues('role'))
       setSearchState({ ...searchState, results: repArray, error: "", length: searchResult.length
     })
     }
 
-    else if (searchState.search === entry && searchState.sort === "Descend" && searchState.order === "Manager"){
+    else if (searchState.search !== entry && searchState.sort === "Descend" && searchState.order === "Manager"){
       //console.log("Manager Descend Triggered")
       let repArray = searchResult.sort(compareValues('manager', 'desc'))
       setSearchState({ ...searchState, results: repArray, error: "", length: searchResult.length
     })
      }
-    else if (searchState.search === entry && searchState.sort === "Ascend" && searchState.order === "Manager"){
+    else if (searchState.search !== entry && searchState.sort === "Ascend" && searchState.order === "Manager"){
       //console.log("Manager Ascend Triggered")
       let repArray = searchResult.sort(compareValues('manager'))
       setSearchState({ ...searchState, results: repArray, error: "", length: searchResult.length
     })
     }
 
-    else if (searchState.search === entry && searchState.sort === "Sort By" && searchState.order === "Manager"){
+    else if (searchState.search !== entry && searchState.sort === "Sort By" && searchState.order === "Manager"){
       //console.log("Manager Ascend Sort Triggered")
       let repArray = searchResult.sort(compareValues('manager'))
       setSearchState({ ...searchState, results: repArray, error: "", length: searchResult.length
