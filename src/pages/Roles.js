@@ -44,9 +44,11 @@ const managerArray = Data.map(result => {
     manager: result.manager
   }
 })
+
 function getUniqueListBy(arr, key) {
   return [...new Map(arr.map(item => [item[key], item])).values()]
 }
+
 const managers = getUniqueListBy(managerArray, 'role').map(result => {
   return result.manager
 })
@@ -55,10 +57,12 @@ const employeesByrole = Data.reduce((acc, result) => {
   acc[result.role] = acc[result.role] + 1 || 1;
   return acc;
 }, {});
+
 const roleNumber = Object.keys(employeesByrole).map(function(key) { 
   // Using obj[key] to retrieve key value 
   return [employeesByrole[key]]; 
 }); 
+
 const roleNumberArray = roleNumber.reduce((acc, it)=> [...acc, ...it], [])
 
 const wage = getUniqueListBy(Data, 'role').map(result => {

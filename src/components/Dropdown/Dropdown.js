@@ -1,6 +1,5 @@
 import React, {useState, useRef, useEffect} from "react";
 
-
 function Dropdown(props) {
   
   const node = useRef();
@@ -23,7 +22,6 @@ function Dropdown(props) {
     // outside click 
     openUp(false)
   };
- 
         return(
             <div className="flex" ref={node}>
             <div className="mr-2 dropdown relative">

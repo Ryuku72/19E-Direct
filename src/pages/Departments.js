@@ -154,6 +154,7 @@ function Departments() {
   const [state, setSearchState] = useState(initialState);
   
   useEffect(() => {
+    return () => {
     if (state.sort === "Sort By" && state.order === "Order By"){
       setSearchState({ ...state, department: showArray})
     }
@@ -330,7 +331,7 @@ function Departments() {
       setSearchState({ ...state, department: repArray})
       //console.log(repArray)
     }
-
+    }
   },[state.sort, state.order])
   
   function onHandleSort(event){
