@@ -309,7 +309,7 @@ function Departments() {
   
   }
     return (
-      <div className="mb-2">
+      <div className="mb-2 transition duration-700 ease-out">
         <div className="border-gray-600 border-b-2">
     <h1 className="text-3xl font-mono">{"//"}DEPARTMENTS: {departmentArray.length}</h1>
     <div className="flex w-full z-20">

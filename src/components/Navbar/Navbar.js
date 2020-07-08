@@ -13,14 +13,10 @@ function Navbar() {
       </div>
       <div className="h-8 bg-gray-900 flex border-gray-600 border-b-2 text-white">
       <div className="text-left w-1/2">
-        <span className="block ml-8 hover:text-orange-400 hover:underline">
-          <Link
-            to="/"
-            className={location.pathname === "/" || window.location.pathname === "/search" ? "text-red-500" : "text-white"}>
-                <i className="fa fa-search mx-2" aria-hidden="true"></i>
-                Search
-                </Link>
-        </span>
+        <a className="">
+          <Link to="/" className={location.pathname === "/" || window.location.pathname === "/search" ? "text-red-500" : "text-white"}>
+            <span className="ml-7 hover:text-orange-400 block ml-8 hover:underline">
+        <i className="fa fa-search mx-2" aria-hidden="true"></i>Search</span></Link></a>
       </div>
       <div className="block w-1/2 text-right mr-4">
         <Link

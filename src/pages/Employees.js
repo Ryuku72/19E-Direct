@@ -342,7 +342,7 @@ function Employees() {
      }
   }
     return (
-      <div className="mb-2">
+      <div className="transition duration-700 ease-out">
         <div className="border-gray-600 border-b-2">
     <h1 className="text-3xl font-mono">{'//'}EMPLOYEES: {showArray.length}</h1>
     <div className="flex w-full z-20">

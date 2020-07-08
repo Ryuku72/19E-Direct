@@ -584,8 +584,8 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
   }
   
   return (
-    <div>
-      <SearchForm
+    <div class="transition duration-700 ease-out">
+      <SearchForm 
         onHandleFormSubmit={onHandleFormSubmit}
         onHandleInputChange={onHandleInputChange}
         clearForm={clearForm}
