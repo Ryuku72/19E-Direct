@@ -108,7 +108,7 @@ for (var i = 0; i < departments.length; i++) {
     name: departments[i],
     number: employeeNumberArray[i],
     manager: managers[i],
-    salary: salaryArray[i]
+    salary:  JSON.parse(salaryArray[i])
   }
 }
 
@@ -135,7 +135,7 @@ function Departments() {
     event.preventDefault();
     //console.log("clicked")
     //console.log(event.target.name)
-    console.log(state)
+    //console.log(state)
     setSearchState({ ...state, sort: event.target.name })
   }
 
@@ -148,13 +148,13 @@ function Departments() {
     event.preventDefault();
     //console.log("clicked")
     //console.log(event.target.name)
-    console.log(state)
+    //console.log(state)
     setSearchState({ ...state, order: event.target.name})
   }
 
   function onHandleFormSubmit(event) {
     event.preventDefault();
-    console.log("submitted")
+    //console.log("submitted")
     
     function compareValues(key, order = 'asc') {
       return function innerSort(a, b) {
