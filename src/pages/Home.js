@@ -11,7 +11,7 @@ function numberWithCommas(x) {
   return parts.join(".");
 }
 
-const newArray = Data.map(function(result, i) {
+const newArray = Data.map(result => {
   return {
       name: result.name.toLowerCase(),
       department: result.department.toLowerCase(),
@@ -105,9 +105,9 @@ function Home() {
   event.preventDefault();
   const entry = JSON.stringify("")
 
-  let searchArray = newArray.filter((obj) => {
+  let searchArray = newArray.filter(obj => {
     var flag = false;
-    Object.values(obj).forEach((val) => {
+    Object.values(obj).forEach(val => {
       if(String(val).indexOf(JSON.parse(searchState.search)) > -1) {
         flag = true;
         return;
@@ -132,7 +132,7 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
  }
    else if (searchState.search === entry && searchState.sort === "Descend" && searchState.order === "Order By"){
     //console.log("Descend Triggered")
-    let repArray = searchArray.sort(compareValues('name', 'desc')).map(function(result, i) {
+    let repArray = searchArray.sort(compareValues('name', 'desc')).map(result => {
       return {
           name: result.name.toLowerCase(),
           department: result.department.toLowerCase(),
@@ -147,7 +147,7 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
    }
   else if (searchState.search === entry && searchState.sort === "Ascend" && searchState.order === "Order By"){
     //console.log("Ascend Triggered")
-    let repArray = searchArray.sort(compareValues('name')).map(function(result, i) {
+    let repArray = searchArray.sort(compareValues('name')).map(result => {
       return {
           name: result.name.toLowerCase(),
           department: result.department.toLowerCase(),
@@ -162,7 +162,7 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
   } 
   else if (searchState.search === entry && searchState.sort === "Descend" && searchState.order === "Department"){
     //console.log("Department Descend Triggered")
-    let repArray = searchArray.sort(compareValues('department', 'desc')).map(function(result, i) {
+    let repArray = searchArray.sort(compareValues('department', 'desc')).map(result => {
       return {
           name: result.name.toLowerCase(),
           department: result.department.toLowerCase(),
@@ -177,7 +177,7 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
    }
   else if (searchState.search === entry && searchState.sort === "Ascend" && searchState.order === "Department"){
     //console.log("Department Ascend Triggered")
-    let repArray = searchArray.sort(compareValues('department')).map(function(result, i) {
+    let repArray = searchArray.sort(compareValues('department')).map(result => {
       return {
           name: result.name.toLowerCase(),
           department: result.department.toLowerCase(),
@@ -192,7 +192,7 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
   } 
   else if (searchState.search === entry && searchState.sort === "Sort By" && searchState.order === "Department"){
     //console.log("Department Ascend Triggered")
-    let repArray = searchArray.sort(compareValues('department')).map(function(result, i) {
+    let repArray = searchArray.sort(compareValues('department')).map(result => {
       return {
           name: result.name.toLowerCase(),
           department: result.department.toLowerCase(),
@@ -207,7 +207,7 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
   } 
   else if (searchState.search === entry && searchState.sort === "Descend" && searchState.order === "Role"){
     //console.log("Role Descend Triggered")
-    let repArray = searchArray.sort(compareValues('role', 'desc')).map(function(result, i) {
+    let repArray = searchArray.sort(compareValues('role', 'desc')).map(result => {
       return {
           name: result.name.toLowerCase(),
           department: result.department.toLowerCase(),
@@ -222,7 +222,7 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
    }
   else if (searchState.search === entry && searchState.sort === "Ascend" && searchState.order === "Role"){
     //console.log("Role Ascend Triggered")
-    let repArray = searchArray.sort(compareValues('role')).map(function(result, i) {
+    let repArray = searchArray.sort(compareValues('role')).map(result => {
       return {
           name: result.name.toLowerCase(),
           department: result.department.toLowerCase(),
@@ -237,7 +237,7 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
   }
   else if (searchState.search === entry && searchState.sort === "Sort By" && searchState.order === "Role"){
     //console.log("Role Ascend Triggered")
-    let repArray = searchArray.sort(compareValues('role')).map(function(result, i) {
+    let repArray = searchArray.sort(compareValues('role')).map(result => {
       return {
           name: result.name.toLowerCase(),
           department: result.department.toLowerCase(),
@@ -252,7 +252,7 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
   }
   else if (searchState.search === entry && searchState.sort === "Descend" && searchState.order === "Manager"){
     //console.log("Manager Descend Triggered")
-    let repArray = searchArray.sort(compareValues('manager', 'desc')).map(function(result, i) {
+    let repArray = searchArray.sort(compareValues('manager', 'desc')).map(result => {
       return {
           name: result.name.toLowerCase(),
           department: result.department.toLowerCase(),
@@ -267,7 +267,7 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
    }
   else if (searchState.search === entry && searchState.sort === "Ascend" && searchState.order === "Manager"){
     //console.log("Manager Ascend Triggered")
-    let repArray = searchArray.sort(compareValues('manager')).map(function(result, i) {
+    let repArray = searchArray.sort(compareValues('manager')).map(result => {
       return {
           name: result.name.toLowerCase(),
           department: result.department.toLowerCase(),
@@ -282,7 +282,7 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
   }
   else if (searchState.search === entry && searchState.sort === "Sort By" && searchState.order === "Manager"){
     //console.log("Manager Ascend Triggered")
-    let repArray = searchArray.sort(compareValues('manager')).map(function(result, i) {
+    let repArray = searchArray.sort(compareValues('manager')).map(result => {
       return {
           name: result.name.toLowerCase(),
           department: result.department.toLowerCase(),
@@ -298,7 +298,7 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
 
   else if (searchState.search === entry && searchState.sort === "Descend" && searchState.order === "Salary"){
     //console.log("Manager Descend Triggered")
-    let repArray = searchArray.sort(compareValues('salary', 'desc')).map(function(result, i) {
+    let repArray = searchArray.sort(compareValues('salary', 'desc')).map(result => {
       return {
           name: result.name.toLowerCase(),
           department: result.department.toLowerCase(),
@@ -314,7 +314,7 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
 
    else if (searchState.search === entry && searchState.sort === "Ascend" && searchState.order === "Salary"){
     //console.log("Manager Descend Triggered")
-    let repArray = searchArray.sort(compareValues('salary')).map(function(result, i) {
+    let repArray = searchArray.sort(compareValues('salary')).map(result => {
       return {
           name: result.name.toLowerCase(),
           department: result.department.toLowerCase(),
@@ -330,7 +330,7 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
 
    else if (searchState.search === entry && searchState.sort === "Sort By" && searchState.order === "Salary"){
     //console.log("Manager Descend Triggered")
-    let repArray = searchArray.sort(compareValues('salary')).map(function(result, i) {
+    let repArray = searchArray.sort(compareValues('salary')).map(result => {
       return {
           name: result.name.toLowerCase(),
           department: result.department.toLowerCase(),
@@ -346,7 +346,7 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
 
      else if (searchState.search !== entry && searchState.sort === "Descend" && searchState.order === "Order By"){
       //console.log("Descend Triggered")
-      let repArray = searchArray.sort(compareValues('name', 'desc')).map(function(result, i) {
+      let repArray = searchArray.sort(compareValues('name', 'desc')).map(result => {
         return {
             name: result.name.toLowerCase(),
             department: result.department.toLowerCase(),
@@ -361,7 +361,7 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
      }
     else if (searchState.search !== entry && searchState.sort === "Ascend" && searchState.order === "Order By"){
       //console.log("Ascend Triggered")
-      let repArray = searchArray.sort(compareValues('name')).map(function(result, i) {
+      let repArray = searchArray.sort(compareValues('name')).map(result => {
         return {
             name: result.name.toLowerCase(),
             department: result.department.toLowerCase(),
@@ -376,7 +376,7 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
     } 
     else if (searchState.search !== entry && searchState.sort === "Sort By" && searchState.order === "Order By"){
       //console.log("Ascend Triggered")
-      let repArray = searchArray.sort(compareValues('name')).map(function(result, i) {
+      let repArray = searchArray.sort(compareValues('name')).map(result => {
         return {
             name: result.name.toLowerCase(),
             department: result.department.toLowerCase(),
@@ -391,7 +391,7 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
     } 
     else if (searchState.search !== entry && searchState.sort === "Descend" && searchState.order === "Department"){
       //console.log("Department Descend Triggered")
-      let repArray = searchArray.sort(compareValues('department', 'desc')).map(function(result, i) {
+      let repArray = searchArray.sort(compareValues('department', 'desc')).map(result => {
         return {
             name: result.name.toLowerCase(),
             department: result.department.toLowerCase(),
@@ -406,7 +406,7 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
      }
     else if (searchState.search !== entry && searchState.sort === "Ascend" && searchState.order === "Department"){
       //console.log("Department Ascend Triggered")
-      let repArray = searchArray.sort(compareValues('department')).map(function(result, i) {
+      let repArray = searchArray.sort(compareValues('department')).map(result => {
         return {
             name: result.name.toLowerCase(),
             department: result.department.toLowerCase(),
@@ -421,7 +421,7 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
     } 
     else if (searchState.search !== entry && searchState.sort === "Sort By" && searchState.order === "Department"){
       //console.log("Department Ascend Sort Triggered")
-      let repArray = searchArray.sort(compareValues('department')).map(function(result, i) {
+      let repArray = searchArray.sort(compareValues('department')).map(result => {
         return {
             name: result.name.toLowerCase(),
             department: result.department.toLowerCase(),
@@ -436,7 +436,7 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
     } 
     else if (searchState.search !== entry && searchState.sort === "Descend" && searchState.order === "Role"){
       //console.log("Role Descend Triggered")
-      let repArray = searchArray.sort(compareValues('role', 'desc')).map(function(result, i) {
+      let repArray = searchArray.sort(compareValues('role', 'desc')).map(result => {
         return {
             name: result.name.toLowerCase(),
             department: result.department.toLowerCase(),
@@ -451,7 +451,7 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
      }
     else if (searchState.search !== entry && searchState.sort === "Ascend" && searchState.order === "Role"){
       //console.log("Role Ascend Triggered")
-      let repArray = searchArray.sort(compareValues('role')).map(function(result, i) {
+      let repArray = searchArray.sort(compareValues('role')).map(result => {
         return {
             name: result.name.toLowerCase(),
             department: result.department.toLowerCase(),
@@ -466,7 +466,7 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
     }
     else if (searchState.search !== entry && searchState.sort === "Sort By" && searchState.order === "Role"){
       //console.log("Role Ascend Sort Triggered")
-      let repArray = searchArray.sort(compareValues('role')).map(function(result, i) {
+      let repArray = searchArray.sort(compareValues('role')).map(result => {
         return {
             name: result.name.toLowerCase(),
             department: result.department.toLowerCase(),
@@ -481,7 +481,7 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
     }
     else if (searchState.search !== entry && searchState.sort === "Descend" && searchState.order === "Manager"){
       //console.log("Manager Descend Triggered")
-      let repArray = searchArray.sort(compareValues('manager', 'desc')).map(function(result, i) {
+      let repArray = searchArray.sort(compareValues('manager', 'desc')).map(result => {
         return {
             name: result.name.toLowerCase(),
             department: result.department.toLowerCase(),
@@ -496,7 +496,7 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
      }
     else if (searchState.search !== entry && searchState.sort === "Ascend" && searchState.order === "Manager"){
       //console.log("Manager Ascend Triggered")
-      let repArray = searchArray.sort(compareValues('manager')).map(function(result, i) {
+      let repArray = searchArray.sort(compareValues('manager')).map(result => {
         return {
             name: result.name.toLowerCase(),
             department: result.department.toLowerCase(),
@@ -511,7 +511,7 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
     }
     else if (searchState.search !== entry && searchState.sort === "Sort By" && searchState.order === "Manager"){
       //console.log("Manager Ascend Sort Triggered")
-      let repArray = searchArray.sort(compareValues('manager')).map(function(result, i) {
+      let repArray = searchArray.sort(compareValues('manager')).map(result => {
         return {
             name: result.name.toLowerCase(),
             department: result.department.toLowerCase(),
@@ -526,7 +526,7 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
     }
     else if (searchState.search !== entry && searchState.sort === "Descend" && searchState.order === "Salary"){
       //console.log("Manager Descend Triggered")
-      let repArray = searchArray.sort(compareValues('salary', 'desc')).map(function(result, i) {
+      let repArray = searchArray.sort(compareValues('salary', 'desc')).map(result => {
         return {
             name: result.name.toLowerCase(),
             department: result.department.toLowerCase(),
@@ -543,7 +543,7 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
 
     else if (searchState.search !== entry && searchState.sort === "Ascend" && searchState.order === "Salary"){
       //console.log("Manager Ascend Triggered")
-      let repArray = searchArray.sort(compareValues('salary')).map(function(result, i) {
+      let repArray = searchArray.sort(compareValues('salary')).map(result => {
         return {
             name: result.name.toLowerCase(),
             department: result.department.toLowerCase(),
@@ -558,7 +558,7 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
     }
     else if (searchState.search !== entry && searchState.sort === "Sort By" && searchState.order === "Salary"){
       //console.log("Manager Ascend Triggered")
-      let repArray = searchArray.sort(compareValues('salary')).map(function(result, i) {
+      let repArray = searchArray.sort(compareValues('salary')).map(result => {
         return {
             name: result.name.toLowerCase(),
             department: result.department.toLowerCase(),

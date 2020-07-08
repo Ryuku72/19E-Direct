@@ -54,7 +54,7 @@ for (var i = 0; i < roles.length; i++) {
 }
 //console.log(showArray)
 
-for (var i = 0; i < roles.length; i++) {
+for (let i = 0; i < roles.length; i++) {
   roleArray[i] = {
   name: roles[i],
   number: roleNumberArray[i],
@@ -131,7 +131,7 @@ function Roles() {
     }
     else if (state.sort === "Ascend" && state.order === "Order By"){
       //console.log("Ascend Triggered")
-      let repArray = roleArray.sort(compareValues('name')).map(function(result, i) {
+      let repArray = roleArray.sort(compareValues('name')).map(result => {
         return{
           name: result.name,
           number: result.number,
@@ -143,7 +143,7 @@ function Roles() {
     }
     else if (state.sort === "Descend" && state.order === "Order By"){
       //console.log("Descend Triggered")
-      let repArray = roleArray.sort(compareValues('name', 'desc')).map(function(result, i) {
+      let repArray = roleArray.sort(compareValues('name', 'desc')).map(result => {
         return{
           name: result.name,
           number: result.number,
@@ -156,7 +156,7 @@ function Roles() {
     }
     else if (state.sort === "Ascend" && state.order === "Roles"){
       //console.log("Ascend Triggered")
-      let repArray = roleArray.sort(compareValues('name')).map(function(result, i) {
+      let repArray = roleArray.sort(compareValues('name')).map(result => {
         return{
           name: result.name,
           number: result.number,
@@ -168,7 +168,7 @@ function Roles() {
     }
     else if (state.sort === "Descend" && state.order === "Roles"){
       //console.log("Descend Triggered")
-      let repArray = roleArray.sort(compareValues('name', 'desc')).map(function(result, i) {
+      let repArray = roleArray.sort(compareValues('name', 'desc')).map(result => {
         return{
           name: result.name,
           number: result.number,
@@ -181,7 +181,7 @@ function Roles() {
     }
     else if (state.sort === "Ascend" && state.order === "Manager"){
       //console.log("Ascend Triggered")
-      let repArray = roleArray.sort(compareValues('manager')).map(function(result, i) {
+      let repArray = roleArray.sort(compareValues('manager')).map(result => {
         return{
           name: result.name,
           number: result.number,
@@ -193,7 +193,7 @@ function Roles() {
     }
     else if (state.sort === "Descend" && state.order === "Manager"){
       //console.log("Descend Triggered")
-      let repArray = roleArray.sort(compareValues('manager', 'desc')).map(function(result, i) {
+      let repArray = roleArray.sort(compareValues('manager', 'desc')).map(result => {
         return{
           name: result.name,
           number: result.number,
@@ -206,7 +206,7 @@ function Roles() {
     }
     else if (state.sort === "Ascend" && state.order === "Salary"){
       //console.log("Ascend Triggered")
-      let repArray = roleArray.sort(compareValues('salary')).map(function(result, i) {
+      let repArray = roleArray.sort(compareValues('salary')).map(result => {
         return{
           name: result.name,
           number: result.number,
@@ -218,7 +218,7 @@ function Roles() {
     }
     else if (state.sort === "Descend" && state.order === "Salary"){
       //console.log("Descend Triggered")
-      let repArray = roleArray.sort(compareValues('salary', 'desc')).map(function(result, i) {
+      let repArray = roleArray.sort(compareValues('salary', 'desc')).map(result => {
         return{
           name: result.name,
           number: result.number,
@@ -231,7 +231,7 @@ function Roles() {
     }
     else if (state.sort === "Ascend" && state.order === "Position"){
       //console.log("Ascend Triggered")
-      let repArray = roleArray.sort(compareValues('number')).map(function(result, i) {
+      let repArray = roleArray.sort(compareValues('number')).map(result => {
         return{
           name: result.name,
           number: result.number,
@@ -243,7 +243,7 @@ function Roles() {
     }
     else if (state.sort === "Descend" && state.order === "Position"){
       //console.log("Descend Triggered")
-      let repArray = roleArray.sort(compareValues('number', 'desc')).map(function(result, i) {
+      let repArray = roleArray.sort(compareValues('number', 'desc')).map(result => {
         return{
           name: result.name,
           number: result.number,

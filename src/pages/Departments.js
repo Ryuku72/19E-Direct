@@ -103,7 +103,7 @@ salaryArray.push(average(secArray).toFixed(0))
 const departmentArray = []
 const showArray = []
 
-for (var i = 0; i < departments.length; i++) {
+for (let i = 0; i < departments.length; i++) {
   departmentArray[i] = {
     name: departments[i],
     number: employeeNumberArray[i],
@@ -112,7 +112,7 @@ for (var i = 0; i < departments.length; i++) {
   }
 }
 
-for (var i = 0; i < departments.length; i++) {
+for (let i = 0; i < departments.length; i++) {
   showArray[i] = {
     name: departments[i],
     number: employeeNumberArray[i],
@@ -183,7 +183,7 @@ function Departments() {
   }
   else if (state.sort === "Ascend" && state.order === "Order By"){
     //console.log("Ascend Triggered")
-    let repArray = departmentArray.sort(compareValues('name')).map(function(result, i) {
+    let repArray = departmentArray.sort(compareValues('name')).map(result => {
       return{
         name: result.name,
         number: result.number,
@@ -195,7 +195,7 @@ function Departments() {
   }
   else if (state.sort === "Descend" && state.order === "Order By"){
     //console.log("Descend Triggered")
-    let repArray = departmentArray.sort(compareValues('name', 'desc')).map(function(result, i) {
+    let repArray = departmentArray.sort(compareValues('name', 'desc')).map(result => {
       return{
         name: result.name,
         number: result.number,
@@ -208,7 +208,7 @@ function Departments() {
   }
   else if (state.sort === "Ascend" && state.order === "Department"){
     //console.log("Ascend Triggered")
-    let repArray = departmentArray.sort(compareValues('name')).map(function(result, i) {
+    let repArray = departmentArray.sort(compareValues('name')).map(result => {
       return{
         name: result.name,
         number: result.number,
@@ -220,7 +220,7 @@ function Departments() {
   }
   else if (state.sort === "Descend" && state.order === "Department"){
     //console.log("Descend Triggered")
-    let repArray = departmentArray.sort(compareValues('name', 'desc')).map(function(result, i) {
+    let repArray = departmentArray.sort(compareValues('name', 'desc')).map(result => {
       return{
         name: result.name,
         number: result.number,
@@ -233,7 +233,7 @@ function Departments() {
   }
   else if (state.sort === "Ascend" && state.order === "Manager"){
     //console.log("Ascend Triggered")
-    let repArray = departmentArray.sort(compareValues('manager')).map(function(result, i) {
+    let repArray = departmentArray.sort(compareValues('manager')).map(result => {
       return{
         name: result.name,
         number: result.number,
@@ -245,7 +245,7 @@ function Departments() {
   }
   else if (state.sort === "Descend" && state.order === "Manager"){
     //console.log("Descend Triggered")
-    let repArray = departmentArray.sort(compareValues('manager', 'desc')).map(function(result, i) {
+    let repArray = departmentArray.sort(compareValues('manager', 'desc')).map(result => {
       return{
         name: result.name,
         number: result.number,
@@ -258,7 +258,7 @@ function Departments() {
   }
   else if (state.sort === "Ascend" && state.order === "Salary"){
     //console.log("Ascend Triggered")
-    let repArray = departmentArray.sort(compareValues('salary')).map(function(result, i) {
+    let repArray = departmentArray.sort(compareValues('salary')).map(result => {
       return{
         name: result.name,
         number: result.number,
@@ -270,7 +270,7 @@ function Departments() {
   }
   else if (state.sort === "Descend" && state.order === "Salary"){
     //console.log("Descend Triggered")
-    let repArray = departmentArray.sort(compareValues('salary', 'desc')).map(function(result, i) {
+    let repArray = departmentArray.sort(compareValues('salary', 'desc')).map(result => {
       return{
         name: result.name,
         number: result.number,
@@ -283,7 +283,7 @@ function Departments() {
   }
   else if (state.sort === "Ascend" && state.order === "Employees"){
     //console.log("Ascend Triggered")
-    let repArray = departmentArray.sort(compareValues('number')).map(function(result, i) {
+    let repArray = departmentArray.sort(compareValues('number')).map(result => {
       return{
         name: result.name,
         number: result.number,
@@ -295,7 +295,7 @@ function Departments() {
   }
   else if (state.sort === "Descend" && state.order === "Employees"){
     //console.log("Descend Triggered")
-    let repArray = departmentArray.sort(compareValues('number', 'desc')).map(function(result, i) {
+    let repArray = departmentArray.sort(compareValues('number', 'desc')).map(result => {
       return{
         name: result.name,
         number: result.number,
