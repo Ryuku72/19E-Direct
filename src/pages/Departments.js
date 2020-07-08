@@ -314,18 +314,6 @@ function Departments() {
     <h1 className="text-3xl font-mono">{"//"}DEPARTMENTS: {departmentArray.length}</h1>
     <div className="flex w-full z-20">
     <form id="create-course-form" className="w-full inline-flex justify-end pb-2">
-    <Dropdown style={{backgroundColor:"#a0aec0"}} title={state.sort}>
-
-            <ul className="dropdown-menu absolute text-gray-700 pt-2 z-50">
-              <li>
-                <a href="/" className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={onHandleSort} name="Ascend">
-                  <i className="fas fa-arrow-up mx-2" aria-hidden="true" name="Ascend"></i>Ascend
-                  </a></li>
-              <li>
-                <a href="/" className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={onHandleSort} name="Descend">
-                <i className="fas fa-arrow-down mx-2" aria-hidden="true" name="Descend"></i>Descend</a></li>
-            </ul>
-    </Dropdown>
     <Dropdown style={{backgroundColor:"#90cdf4"}} title={state.order}>
             <ul className="dropdown-menu absolute text-gray-700 pt-2 z-50">
               <li>
@@ -343,6 +331,18 @@ function Departments() {
                 <i className="fas fa-wallet mx-2" name="Salary"></i>Salary</a></li>
             </ul>
             </Dropdown>
+            <Dropdown style={{backgroundColor:"#a0aec0"}} title={state.sort}>
+
+            <ul className="dropdown-menu absolute text-gray-700 pt-2 z-50">
+              <li>
+                <a href="/" className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={onHandleSort} name="Ascend">
+                  <i className="fas fa-arrow-up mx-2" aria-hidden="true" name="Ascend"></i>Ascend
+                  </a></li>
+              <li>
+                <a href="/" className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={onHandleSort} name="Descend">
+                <i className="fas fa-arrow-down mx-2" aria-hidden="true" name="Descend"></i>Descend</a></li>
+            </ul>
+    </Dropdown>
             <button type="submit" onClick={onHandleFormSubmit} 
         className="mr-2 w-32 bg-green-300 text-gray-700 font-semibold py-2 px-4 rounded inline-block items-center">
           Submit</button>

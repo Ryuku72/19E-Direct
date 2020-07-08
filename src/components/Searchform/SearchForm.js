@@ -35,18 +35,6 @@ function SearchForm(props) {
             <option value={result} key={result} />
           ))} 
         </datalist>
-            <Dropdown style={{backgroundColor:"#a0aec0"}} title={props.sort}>
-
-            <ul className="dropdown-menu absolute text-gray-700 pt-2 z-50">
-              <li>
-                <a href="/" className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={props.onHandleSort} name="Ascend">
-                  <i className="fas fa-arrow-up mx-2" aria-hidden="true" name="Ascend"></i>Ascend
-                  </a></li>
-              <li>
-                <a href="/" className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={props.onHandleSort} name="Descend">
-                <i className="fas fa-arrow-down mx-2" aria-hidden="true" name="Descend"></i>Descend</a></li>
-            </ul>
-            </Dropdown>
             <Dropdown style={{backgroundColor:"#90cdf4"}} title={props.order}>
             <ul className="dropdown-menu absolute text-gray-700 pt-2 z-50">
               <li>
@@ -62,6 +50,18 @@ function SearchForm(props) {
                 <li>
                 <a href="/" className="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={props.onHandleOrder} name="Salary">
                 <i className="fas fa-wallet mx-2" name="Salary"></i>Salary</a></li>
+            </ul>
+            </Dropdown>
+            <Dropdown style={{backgroundColor:"#a0aec0"}} title={props.sort}>
+
+            <ul className="dropdown-menu absolute text-gray-700 pt-2 z-50">
+              <li>
+                <a href="/" className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={props.onHandleSort} name="Ascend">
+                  <i className="fas fa-arrow-up mx-2" aria-hidden="true" name="Ascend"></i>Ascend
+                  </a></li>
+              <li>
+                <a href="/" className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={props.onHandleSort} name="Descend">
+                <i className="fas fa-arrow-down mx-2" aria-hidden="true" name="Descend"></i>Descend</a></li>
             </ul>
             </Dropdown>
             <button type="submit" onClick={props.onHandleFormSubmit} 
