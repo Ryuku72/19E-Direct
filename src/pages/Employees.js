@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import List from "../components/List/List";
 import Data from "../company.json";
 import Dropdown from "../components/Dropdown/Dropdown"
@@ -15,7 +15,6 @@ function compareValues(key, order = 'asc') {
       // property doesn't exist on either object
       return 0;
     }
-
     const varA = (typeof a[key] === 'string')
       ? a[key].toUpperCase() : a[key];
     const varB = (typeof b[key] === 'string')
@@ -67,6 +66,272 @@ function Employees() {
   }
   const [searchState, setSearchState] = useState(initialState);
   
+  useEffect(()=>{
+    if (searchState.sort === "Sort By" && searchState.order === "Order By"){
+      //console.log("All Triggered")
+      setSearchState({ ...searchState, results: showArray, error: "", length: eArray.length
+    })
+     }
+     else if (searchState.sort === "Sort By" && searchState.order === "Name"){
+      // console.log(searchState)
+       let repArray = eArray.sort(compareValues('name')).map(result => {
+         return {
+           name: result.name,
+           department: result.department,
+           role: result.role,
+           manager: result.manager,
+           salary: numberWithCommas(result.salary),
+           email: result.email
+         }
+       });
+       setSearchState({ ...searchState, results: repArray, error: "", length: eArray.length
+     })
+      }
+       else if (searchState.sort === "Descend" && searchState.order === "Order By"){
+       // console.log(searchState)
+        let repArray = eArray.sort(compareValues('name', 'desc')).map(result => {
+          return {
+            name: result.name,
+            department: result.department,
+            role: result.role,
+            manager: result.manager,
+            salary: numberWithCommas(result.salary),
+            email: result.email
+          }
+        });
+        setSearchState({ ...searchState, results: repArray, error: "", length: eArray.length
+      })
+       }
+      else if (searchState.sort === "Ascend" && searchState.order === "Order By"){
+        //console.log("Ascend Triggered")
+        let repArray = eArray.sort(compareValues('name')).map(result => {
+          return {
+            name: result.name,
+            department: result.department,
+            role: result.role,
+            manager: result.manager,
+            salary: numberWithCommas(result.salary),
+            email: result.email
+          }
+        });
+        setSearchState({ ...searchState, results: repArray, error: "", length: eArray.length
+      })
+      } 
+      else if (searchState.sort === "Descend" && searchState.order === "Name"){
+       // console.log(searchState)
+        let repArray = eArray.sort(compareValues('name', 'desc')).map(result => {
+          return {
+            name: result.name,
+            department: result.department,
+            role: result.role,
+            manager: result.manager,
+            salary: numberWithCommas(result.salary),
+            email: result.email
+          }
+        });
+        setSearchState({ ...searchState, results: repArray, error: "", length: eArray.length
+      })
+       }
+      else if (searchState.sort === "Ascend" && searchState.order === "Name"){
+        //console.log("Ascend Triggered")
+        let repArray = eArray.sort(compareValues('name')).map(result => {
+          return {
+            name: result.name,
+            department: result.department,
+            role: result.role,
+            manager: result.manager,
+            salary: numberWithCommas(result.salary),
+            email: result.email
+          }
+        });
+        setSearchState({ ...searchState, results: repArray, error: "", length: eArray.length
+      })
+      } 
+      else if (searchState.sort === "Descend" && searchState.order === "Department"){
+        //console.log("Department Descend Triggered")
+        let repArray = eArray.sort(compareValues('department', 'desc')).map(result => {
+          return {
+            name: result.name,
+            department: result.department,
+            role: result.role,
+            manager: result.manager,
+            salary: numberWithCommas(result.salary),
+            email: result.email
+          }
+        });
+        setSearchState({ ...searchState, results: repArray, error: "", length: eArray.length
+      })
+       }
+      else if (searchState.sort === "Ascend" && searchState.order === "Department"){
+        //console.log("Department Ascend Triggered")
+        let repArray = eArray.sort(compareValues('department')).map(result => {
+          return {
+            name: result.name,
+            department: result.department,
+            role: result.role,
+            manager: result.manager,
+            salary: numberWithCommas(result.salary),
+            email: result.email
+          }
+        });
+        setSearchState({ ...searchState, results: repArray, error: "", length: eArray.length
+      })
+      } 
+      else if (searchState.sort === "Sort By" && searchState.order === "Department"){
+        //console.log("Department Ascend Triggered")
+        let repArray = eArray.sort(compareValues('department')).map(result => {
+          return {
+            name: result.name,
+            department: result.department,
+            role: result.role,
+            manager: result.manager,
+            salary: numberWithCommas(result.salary),
+            email: result.email
+          }
+        });
+        setSearchState({ ...searchState, results: repArray, error: "", length: eArray.length
+      })
+      } 
+      else if (searchState.sort === "Descend" && searchState.order === "Role"){
+        //console.log("Role Descend Triggered")
+        let repArray = eArray.sort(compareValues('role', 'desc')).map(result => {
+          return {
+            name: result.name,
+            department: result.department,
+            role: result.role,
+            manager: result.manager,
+            salary: numberWithCommas(result.salary),
+            email: result.email
+          }
+        });
+        setSearchState({ ...searchState, results: repArray, error: "", length: eArray.length
+      })
+       }
+      else if (searchState.sort === "Ascend" && searchState.order === "Role"){
+        //console.log("Role Ascend Triggered")
+        let repArray = eArray.sort(compareValues('role')).map(result => {
+          return {
+            name: result.name,
+            department: result.department,
+            role: result.role,
+            manager: result.manager,
+            salary: numberWithCommas(result.salary),
+            email: result.email
+          }
+        });
+        setSearchState({ ...searchState, results: repArray, error: "", length: eArray.length
+      })
+      }
+      else if (searchState.sort === "Sort By" && searchState.order === "Role"){
+        //console.log("Role Ascend Triggered")
+        let repArray = eArray.sort(compareValues('role')).map(result => {
+          return {
+            name: result.name,
+            department: result.department,
+            role: result.role,
+            manager: result.manager,
+            salary: numberWithCommas(result.salary),
+            email: result.email
+          }
+        });
+        setSearchState({ ...searchState, results: repArray, error: "", length: eArray.length
+      })
+      }
+      else if (searchState.sort === "Descend" && searchState.order === "Manager"){
+        //console.log("Manager Descend Triggered")
+        let repArray = eArray.sort(compareValues('manager', 'desc')).map(result => {
+          return {
+            name: result.name,
+            department: result.department,
+            role: result.role,
+            manager: result.manager,
+            salary: numberWithCommas(result.salary),
+            email: result.email
+          }
+        });
+        setSearchState({ ...searchState, results: repArray, error: "", length: eArray.length
+      })
+       }
+      else if (searchState.sort === "Ascend" && searchState.order === "Manager"){
+        //console.log("Manager Ascend Triggered")
+        let repArray = eArray.sort(compareValues('manager')).map(result => {
+          return {
+            name: result.name,
+            department: result.department,
+            role: result.role,
+            manager: result.manager,
+            salary: numberWithCommas(result.salary),
+            email: result.email
+          }
+        });
+        setSearchState({ ...searchState, results: repArray, error: "", length: eArray.length
+      })
+      }
+      else if (searchState.sort === "Sort By" && searchState.order === "Manager"){
+        //console.log("Manager Ascend Triggered")
+        let repArray = eArray.sort(compareValues('manager')).map(result => {
+          return {
+            name: result.name,
+            department: result.department,
+            role: result.role,
+            manager: result.manager,
+            salary: numberWithCommas(result.salary),
+            email: result.email
+          }
+        });
+        setSearchState({ ...searchState, results: repArray, error: "", length: eArray.length
+      })
+      }
+    
+      else if (searchState.sort === "Descend" && searchState.order === "Salary"){
+        //console.log("Manager Descend Triggered")
+        let repArray = eArray.sort(compareValues('salary', 'desc')).map(result => {
+          return {
+            name: result.name,
+            department: result.department,
+            role: result.role,
+            manager: result.manager,
+            salary: numberWithCommas(result.salary),
+            email: result.email
+          }
+        });
+        setSearchState({ ...searchState, results: repArray, error: "", length: eArray.length})
+       // console.log(repArray)
+       }
+    
+       else if (searchState.sort === "Ascend" && searchState.order === "Salary"){
+        //console.log("Manager Descend Triggered")
+        let repArray = eArray.sort(compareValues('salary')).map(result => {
+          return {
+            name: result.name,
+            department: result.department,
+            role: result.role,
+            manager: result.manager,
+            salary: numberWithCommas(result.salary),
+            email: result.email
+          }
+        });
+        setSearchState({ ...searchState, results: repArray, error: "", length: eArray.length})
+        //console.log(repArray)
+       }
+    
+       else if (searchState.sort === "Sort By" && searchState.order === "Salary"){
+        //console.log("Manager Descend Triggered")
+        let repArray = eArray.sort(compareValues('salary')).map(result => {
+          return {
+            name: result.name,
+            department: result.department,
+            role: result.role,
+            manager: result.manager,
+            salary: numberWithCommas(result.salary),
+            email: result.email
+          }
+        });
+        setSearchState({ ...searchState, results: repArray, error: "", length: eArray.length})
+       // console.log(repArray)
+       }
+  }, [searchState.sort, searchState.order])
+
   function onHandleSort(event){
     event.preventDefault();
     //console.log("clicked")
@@ -88,259 +353,6 @@ function Employees() {
     setSearchState({ ...searchState, order: event.target.name})
   }
 
-  function onHandleFormSubmit(event) {
-    event.preventDefault();
-    //console.log("submitted")
- 
-  if (searchState.sort === "Sort By" && searchState.order === "Order By"){
-    //console.log("All Triggered")
-    setSearchState({ ...searchState, results: showArray, error: "", length: eArray.length
-  })
-   }
-     else if (searchState.sort === "Descend" && searchState.order === "Order By"){
-     // console.log(searchState)
-      let repArray = eArray.sort(compareValues('name', 'desc')).map(result => {
-        return {
-          name: result.name,
-          department: result.department,
-          role: result.role,
-          manager: result.manager,
-          salary: numberWithCommas(result.salary),
-          email: result.email
-        }
-      });
-      setSearchState({ ...searchState, results: repArray, error: "", length: eArray.length
-    })
-     }
-    else if (searchState.sort === "Ascend" && searchState.order === "Order By"){
-      //console.log("Ascend Triggered")
-      let repArray = eArray.sort(compareValues('name')).map(result => {
-        return {
-          name: result.name,
-          department: result.department,
-          role: result.role,
-          manager: result.manager,
-          salary: numberWithCommas(result.salary),
-          email: result.email
-        }
-      });
-      setSearchState({ ...searchState, results: repArray, error: "", length: eArray.length
-    })
-    } 
-    else if (searchState.sort === "Descend" && searchState.order === "Name"){
-     // console.log(searchState)
-      let repArray = eArray.sort(compareValues('name', 'desc')).map(result => {
-        return {
-          name: result.name,
-          department: result.department,
-          role: result.role,
-          manager: result.manager,
-          salary: numberWithCommas(result.salary),
-          email: result.email
-        }
-      });
-      setSearchState({ ...searchState, results: repArray, error: "", length: eArray.length
-    })
-     }
-    else if (searchState.sort === "Ascend" && searchState.order === "Name"){
-      //console.log("Ascend Triggered")
-      let repArray = eArray.sort(compareValues('name')).map(result => {
-        return {
-          name: result.name,
-          department: result.department,
-          role: result.role,
-          manager: result.manager,
-          salary: numberWithCommas(result.salary),
-          email: result.email
-        }
-      });
-      setSearchState({ ...searchState, results: repArray, error: "", length: eArray.length
-    })
-    } 
-    else if (searchState.sort === "Descend" && searchState.order === "Department"){
-      //console.log("Department Descend Triggered")
-      let repArray = eArray.sort(compareValues('department', 'desc')).map(result => {
-        return {
-          name: result.name,
-          department: result.department,
-          role: result.role,
-          manager: result.manager,
-          salary: numberWithCommas(result.salary),
-          email: result.email
-        }
-      });
-      setSearchState({ ...searchState, results: repArray, error: "", length: eArray.length
-    })
-     }
-    else if (searchState.sort === "Ascend" && searchState.order === "Department"){
-      //console.log("Department Ascend Triggered")
-      let repArray = eArray.sort(compareValues('department')).map(result => {
-        return {
-          name: result.name,
-          department: result.department,
-          role: result.role,
-          manager: result.manager,
-          salary: numberWithCommas(result.salary),
-          email: result.email
-        }
-      });
-      setSearchState({ ...searchState, results: repArray, error: "", length: eArray.length
-    })
-    } 
-    else if (searchState.sort === "Sort By" && searchState.order === "Department"){
-      //console.log("Department Ascend Triggered")
-      let repArray = eArray.sort(compareValues('department')).map(result => {
-        return {
-          name: result.name,
-          department: result.department,
-          role: result.role,
-          manager: result.manager,
-          salary: numberWithCommas(result.salary),
-          email: result.email
-        }
-      });
-      setSearchState({ ...searchState, results: repArray, error: "", length: eArray.length
-    })
-    } 
-    else if (searchState.sort === "Descend" && searchState.order === "Role"){
-      //console.log("Role Descend Triggered")
-      let repArray = eArray.sort(compareValues('role', 'desc')).map(result => {
-        return {
-          name: result.name,
-          department: result.department,
-          role: result.role,
-          manager: result.manager,
-          salary: numberWithCommas(result.salary),
-          email: result.email
-        }
-      });
-      setSearchState({ ...searchState, results: repArray, error: "", length: eArray.length
-    })
-     }
-    else if (searchState.sort === "Ascend" && searchState.order === "Role"){
-      //console.log("Role Ascend Triggered")
-      let repArray = eArray.sort(compareValues('role')).map(result => {
-        return {
-          name: result.name,
-          department: result.department,
-          role: result.role,
-          manager: result.manager,
-          salary: numberWithCommas(result.salary),
-          email: result.email
-        }
-      });
-      setSearchState({ ...searchState, results: repArray, error: "", length: eArray.length
-    })
-    }
-    else if (searchState.sort === "Sort By" && searchState.order === "Role"){
-      //console.log("Role Ascend Triggered")
-      let repArray = eArray.sort(compareValues('role')).map(result => {
-        return {
-          name: result.name,
-          department: result.department,
-          role: result.role,
-          manager: result.manager,
-          salary: numberWithCommas(result.salary),
-          email: result.email
-        }
-      });
-      setSearchState({ ...searchState, results: repArray, error: "", length: eArray.length
-    })
-    }
-    else if (searchState.sort === "Descend" && searchState.order === "Manager"){
-      //console.log("Manager Descend Triggered")
-      let repArray = eArray.sort(compareValues('manager', 'desc')).map(result => {
-        return {
-          name: result.name,
-          department: result.department,
-          role: result.role,
-          manager: result.manager,
-          salary: numberWithCommas(result.salary),
-          email: result.email
-        }
-      });
-      setSearchState({ ...searchState, results: repArray, error: "", length: eArray.length
-    })
-     }
-    else if (searchState.sort === "Ascend" && searchState.order === "Manager"){
-      //console.log("Manager Ascend Triggered")
-      let repArray = eArray.sort(compareValues('manager')).map(result => {
-        return {
-          name: result.name,
-          department: result.department,
-          role: result.role,
-          manager: result.manager,
-          salary: numberWithCommas(result.salary),
-          email: result.email
-        }
-      });
-      setSearchState({ ...searchState, results: repArray, error: "", length: eArray.length
-    })
-    }
-    else if (searchState.sort === "Sort By" && searchState.order === "Manager"){
-      //console.log("Manager Ascend Triggered")
-      let repArray = eArray.sort(compareValues('manager')).map(result => {
-        return {
-          name: result.name,
-          department: result.department,
-          role: result.role,
-          manager: result.manager,
-          salary: numberWithCommas(result.salary),
-          email: result.email
-        }
-      });
-      setSearchState({ ...searchState, results: repArray, error: "", length: eArray.length
-    })
-    }
-  
-    else if (searchState.sort === "Descend" && searchState.order === "Salary"){
-      //console.log("Manager Descend Triggered")
-      let repArray = eArray.sort(compareValues('salary', 'desc')).map(result => {
-        return {
-          name: result.name,
-          department: result.department,
-          role: result.role,
-          manager: result.manager,
-          salary: numberWithCommas(result.salary),
-          email: result.email
-        }
-      });
-      setSearchState({ ...searchState, results: repArray, error: "", length: eArray.length})
-     // console.log(repArray)
-     }
-  
-     else if (searchState.sort === "Ascend" && searchState.order === "Salary"){
-      //console.log("Manager Descend Triggered")
-      let repArray = eArray.sort(compareValues('salary')).map(result => {
-        return {
-          name: result.name,
-          department: result.department,
-          role: result.role,
-          manager: result.manager,
-          salary: numberWithCommas(result.salary),
-          email: result.email
-        }
-      });
-      setSearchState({ ...searchState, results: repArray, error: "", length: eArray.length})
-      //console.log(repArray)
-     }
-  
-     else if (searchState.sort === "Sort By" && searchState.order === "Salary"){
-      //console.log("Manager Descend Triggered")
-      let repArray = eArray.sort(compareValues('salary')).map(result => {
-        return {
-          name: result.name,
-          department: result.department,
-          role: result.role,
-          manager: result.manager,
-          salary: numberWithCommas(result.salary),
-          email: result.email
-        }
-      });
-      setSearchState({ ...searchState, results: repArray, error: "", length: eArray.length})
-     // console.log(repArray)
-     }
-  }
     return (
       <div className="transition duration-700 ease-out">
         <div className="border-gray-600 border-b-2">
@@ -380,9 +392,6 @@ function Employees() {
                 <i className="fas fa-arrow-down mx-2" aria-hidden="true" name="Descend"></i>Descend</a></li>
             </ul>
     </Dropdown>
-            <button type="submit" onClick={onHandleFormSubmit} 
-        className="mr-2 w-32 bg-green-300 text-gray-700 font-semibold py-2 px-4 rounded inline-block items-center">
-          Submit</button>
           <button type="reset" onClick={clearForm}
         className="mr-2 w-32 bg-purple-300 text-gray-700 font-semibold text- py-2 px-4 rounded inline-block items-center">
           Reset</button>

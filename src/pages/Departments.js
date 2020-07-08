@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Data from "../company.json";
 import Dropdown from "../components/Dropdown/Dropdown"
 import List from "../components/List/List";
@@ -8,7 +8,28 @@ function numberWithCommas(x) {
   parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   return parts.join(".");
 }
+function compareValues(key, order = 'asc') {
+  return function innerSort(a, b) {
+    if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
+      // property doesn't exist on either object
+      return 0;
+    }
+    const varA = (typeof a[key] === 'string')
+      ? a[key].toUpperCase() : a[key];
+    const varB = (typeof b[key] === 'string')
+      ? b[key].toUpperCase() : b[key];
 
+    let comparison = 0;
+    if (varA > varB) {
+      comparison = 1;
+    } else if (varA < varB) {
+      comparison = -1;
+    }
+    return (
+      (order === 'desc') ? (comparison * -1) : comparison
+    );
+  };
+}
 const departArray = Data.map(result => {
   return result.department
 })
@@ -131,6 +152,187 @@ function Departments() {
   }
  
   const [state, setSearchState] = useState(initialState);
+  
+  useEffect(() => {
+    if (state.sort === "Sort By" && state.order === "Order By"){
+      setSearchState({ ...state, department: showArray})
+    }
+    else if (state.sort === "Sort By" && state.order === "Department"){
+      //console.log("Ascend Triggered")
+      let repArray = departmentArray.sort(compareValues('name')).map(result => {
+        return{
+          name: result.name,
+          number: result.number,
+          manager: result.manager,
+          salary: numberWithCommas(result.salary)
+        }
+      });
+      setSearchState({ ...state, department: repArray})
+    }
+    else if (state.sort === "Sort By" && state.order === "Employees"){
+      //console.log("Ascend Triggered")
+      let repArray = departmentArray.sort(compareValues('number')).map(result => {
+        return{
+          name: result.name,
+          number: result.number,
+          manager: result.manager,
+          salary: numberWithCommas(result.salary)
+        }
+      });
+      setSearchState({ ...state, department: repArray})
+    }
+    else if (state.sort === "Sort By" && state.order === "Manager"){
+      //console.log("Ascend Triggered")
+      let repArray = departmentArray.sort(compareValues('manager')).map(result => {
+        return{
+          name: result.name,
+          number: result.number,
+          manager: result.manager,
+          salary: numberWithCommas(result.salary)
+        }
+      });
+      setSearchState({ ...state, department: repArray})
+    }
+    else if (state.sort === "Sort By" && state.order === "Salary"){
+      //console.log("Ascend Triggered")
+      let repArray = departmentArray.sort(compareValues('salary')).map(result => {
+        return{
+          name: result.name,
+          number: result.number,
+          manager: result.manager,
+          salary: numberWithCommas(result.salary)
+        }
+      });
+      setSearchState({ ...state, department: repArray})
+    }
+    else if (state.sort === "Ascend" && state.order === "Order By"){
+      //console.log("Ascend Triggered")
+      let repArray = departmentArray.sort(compareValues('name')).map(result => {
+        return{
+          name: result.name,
+          number: result.number,
+          manager: result.manager,
+          salary: numberWithCommas(result.salary)
+        }
+      });
+      setSearchState({ ...state, department: repArray})
+    }
+    else if (state.sort === "Descend" && state.order === "Order By"){
+      //console.log("Descend Triggered")
+      let repArray = departmentArray.sort(compareValues('name', 'desc')).map(result => {
+        return{
+          name: result.name,
+          number: result.number,
+          manager: result.manager,
+          salary: numberWithCommas(result.salary)
+        }
+      });
+      setSearchState({ ...state, department: repArray})
+      //console.log(repArray)
+    }
+    else if (state.sort === "Ascend" && state.order === "Department"){
+      //console.log("Ascend Triggered")
+      let repArray = departmentArray.sort(compareValues('name')).map(result => {
+        return{
+          name: result.name,
+          number: result.number,
+          manager: result.manager,
+          salary: numberWithCommas(result.salary)
+        }
+      });
+      setSearchState({ ...state, department: repArray})
+    }
+    else if (state.sort === "Descend" && state.order === "Department"){
+      //console.log("Descend Triggered")
+      let repArray = departmentArray.sort(compareValues('name', 'desc')).map(result => {
+        return{
+          name: result.name,
+          number: result.number,
+          manager: result.manager,
+          salary: numberWithCommas(result.salary)
+        }
+      });
+      setSearchState({ ...state, department: repArray})
+      //console.log(repArray)
+    }
+    else if (state.sort === "Ascend" && state.order === "Manager"){
+      //console.log("Ascend Triggered")
+      let repArray = departmentArray.sort(compareValues('manager')).map(result => {
+        return{
+          name: result.name,
+          number: result.number,
+          manager: result.manager,
+          salary: numberWithCommas(result.salary)
+        }
+      });
+      setSearchState({ ...state, department: repArray})
+    }
+    else if (state.sort === "Descend" && state.order === "Manager"){
+      //console.log("Descend Triggered")
+      let repArray = departmentArray.sort(compareValues('manager', 'desc')).map(result => {
+        return{
+          name: result.name,
+          number: result.number,
+          manager: result.manager,
+          salary: numberWithCommas(result.salary)
+        }
+      });
+      setSearchState({ ...state, department: repArray})
+      //console.log(repArray)
+    }
+    else if (state.sort === "Ascend" && state.order === "Salary"){
+      //console.log("Ascend Triggered")
+      let repArray = departmentArray.sort(compareValues('salary')).map(result => {
+        return{
+          name: result.name,
+          number: result.number,
+          manager: result.manager,
+          salary: numberWithCommas(result.salary)
+        }
+      });
+      setSearchState({ ...state, department: repArray})
+    }
+    else if (state.sort === "Descend" && state.order === "Salary"){
+      //console.log("Descend Triggered")
+      let repArray = departmentArray.sort(compareValues('salary', 'desc')).map(result => {
+        return{
+          name: result.name,
+          number: result.number,
+          manager: result.manager,
+          salary: numberWithCommas(result.salary)
+        }
+      });
+      setSearchState({ ...state, department: repArray})
+      //console.log(repArray)
+    }
+    else if (state.sort === "Ascend" && state.order === "Employees"){
+      //console.log("Ascend Triggered")
+      let repArray = departmentArray.sort(compareValues('number')).map(result => {
+        return{
+          name: result.name,
+          number: result.number,
+          manager: result.manager,
+          salary: numberWithCommas(result.salary)
+        }
+      });
+      setSearchState({ ...state, department: repArray})
+    }
+    else if (state.sort === "Descend" && state.order === "Employees"){
+      //console.log("Descend Triggered")
+      let repArray = departmentArray.sort(compareValues('number', 'desc')).map(result => {
+        return{
+          name: result.name,
+          number: result.number,
+          manager: result.manager,
+          salary: numberWithCommas(result.salary)
+        }
+      });
+      setSearchState({ ...state, department: repArray})
+      //console.log(repArray)
+    }
+
+  },[state.sort, state.order])
+  
   function onHandleSort(event){
     event.preventDefault();
     //console.log("clicked")
@@ -152,162 +354,6 @@ function Departments() {
     setSearchState({ ...state, order: event.target.name})
   }
 
-  function onHandleFormSubmit(event) {
-    event.preventDefault();
-    //console.log("submitted")
-    
-    function compareValues(key, order = 'asc') {
-      return function innerSort(a, b) {
-        if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
-          // property doesn't exist on either object
-          return 0;
-        }
-        const varA = (typeof a[key] === 'string')
-          ? a[key].toUpperCase() : a[key];
-        const varB = (typeof b[key] === 'string')
-          ? b[key].toUpperCase() : b[key];
-    
-        let comparison = 0;
-        if (varA > varB) {
-          comparison = 1;
-        } else if (varA < varB) {
-          comparison = -1;
-        }
-        return (
-          (order === 'desc') ? (comparison * -1) : comparison
-        );
-      };
-    }
-  if (state.sort === "Sort By" && state.order === "Order By"){
-    setSearchState({ ...state, department: showArray})
-  }
-  else if (state.sort === "Ascend" && state.order === "Order By"){
-    //console.log("Ascend Triggered")
-    let repArray = departmentArray.sort(compareValues('name')).map(result => {
-      return{
-        name: result.name,
-        number: result.number,
-        manager: result.manager,
-        salary: numberWithCommas(result.salary)
-      }
-    });
-    setSearchState({ ...state, department: repArray})
-  }
-  else if (state.sort === "Descend" && state.order === "Order By"){
-    //console.log("Descend Triggered")
-    let repArray = departmentArray.sort(compareValues('name', 'desc')).map(result => {
-      return{
-        name: result.name,
-        number: result.number,
-        manager: result.manager,
-        salary: numberWithCommas(result.salary)
-      }
-    });
-    setSearchState({ ...state, department: repArray})
-    //console.log(repArray)
-  }
-  else if (state.sort === "Ascend" && state.order === "Department"){
-    //console.log("Ascend Triggered")
-    let repArray = departmentArray.sort(compareValues('name')).map(result => {
-      return{
-        name: result.name,
-        number: result.number,
-        manager: result.manager,
-        salary: numberWithCommas(result.salary)
-      }
-    });
-    setSearchState({ ...state, department: repArray})
-  }
-  else if (state.sort === "Descend" && state.order === "Department"){
-    //console.log("Descend Triggered")
-    let repArray = departmentArray.sort(compareValues('name', 'desc')).map(result => {
-      return{
-        name: result.name,
-        number: result.number,
-        manager: result.manager,
-        salary: numberWithCommas(result.salary)
-      }
-    });
-    setSearchState({ ...state, department: repArray})
-    //console.log(repArray)
-  }
-  else if (state.sort === "Ascend" && state.order === "Manager"){
-    //console.log("Ascend Triggered")
-    let repArray = departmentArray.sort(compareValues('manager')).map(result => {
-      return{
-        name: result.name,
-        number: result.number,
-        manager: result.manager,
-        salary: numberWithCommas(result.salary)
-      }
-    });
-    setSearchState({ ...state, department: repArray})
-  }
-  else if (state.sort === "Descend" && state.order === "Manager"){
-    //console.log("Descend Triggered")
-    let repArray = departmentArray.sort(compareValues('manager', 'desc')).map(result => {
-      return{
-        name: result.name,
-        number: result.number,
-        manager: result.manager,
-        salary: numberWithCommas(result.salary)
-      }
-    });
-    setSearchState({ ...state, department: repArray})
-    //console.log(repArray)
-  }
-  else if (state.sort === "Ascend" && state.order === "Salary"){
-    //console.log("Ascend Triggered")
-    let repArray = departmentArray.sort(compareValues('salary')).map(result => {
-      return{
-        name: result.name,
-        number: result.number,
-        manager: result.manager,
-        salary: numberWithCommas(result.salary)
-      }
-    });
-    setSearchState({ ...state, department: repArray})
-  }
-  else if (state.sort === "Descend" && state.order === "Salary"){
-    //console.log("Descend Triggered")
-    let repArray = departmentArray.sort(compareValues('salary', 'desc')).map(result => {
-      return{
-        name: result.name,
-        number: result.number,
-        manager: result.manager,
-        salary: numberWithCommas(result.salary)
-      }
-    });
-    setSearchState({ ...state, department: repArray})
-    //console.log(repArray)
-  }
-  else if (state.sort === "Ascend" && state.order === "Employees"){
-    //console.log("Ascend Triggered")
-    let repArray = departmentArray.sort(compareValues('number')).map(result => {
-      return{
-        name: result.name,
-        number: result.number,
-        manager: result.manager,
-        salary: numberWithCommas(result.salary)
-      }
-    });
-    setSearchState({ ...state, department: repArray})
-  }
-  else if (state.sort === "Descend" && state.order === "Employees"){
-    //console.log("Descend Triggered")
-    let repArray = departmentArray.sort(compareValues('number', 'desc')).map(result => {
-      return{
-        name: result.name,
-        number: result.number,
-        manager: result.manager,
-        salary: numberWithCommas(result.salary)
-      }
-    });
-    setSearchState({ ...state, department: repArray})
-    //console.log(repArray)
-  }
-  
-  }
     return (
       <div className="mb-2 transition duration-700 ease-out">
         <div className="border-gray-600 border-b-2">
@@ -343,9 +389,6 @@ function Departments() {
                 <i className="fas fa-arrow-down mx-2" aria-hidden="true" name="Descend"></i>Descend</a></li>
             </ul>
     </Dropdown>
-            <button type="submit" onClick={onHandleFormSubmit} 
-        className="mr-2 w-32 bg-green-300 text-gray-700 font-semibold py-2 px-4 rounded inline-block items-center">
-          Submit</button>
           <button type="reset" onClick={clearForm}
         className="mr-2 w-32 bg-purple-300 text-gray-700 font-semibold text- py-2 px-4 rounded inline-block items-center">
           Reset</button>
