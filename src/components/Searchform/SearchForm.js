@@ -58,7 +58,7 @@ function SearchForm(props) {
                 <i className="fas fas fa-tools mx-2" name="Role"></i>Role</a></li>
               <li>
                 <a href="/" className="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={props.onHandleOrder} name="Manager">
-                <i className="fas fa-user-cog mx-2" name="Manager"></i>Manager</a></li>
+                <i className="fas fa-user-tie mx-2" name="Manager"></i>Manager</a></li>
                 <li>
                 <a href="/" className="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={props.onHandleOrder} name="Salary">
                 <i className="fas fa-wallet mx-2" name="Salary"></i>Salary</a></li>
@@ -66,7 +66,7 @@ function SearchForm(props) {
             </Dropdown>
             <button type="submit" onClick={props.onHandleFormSubmit} 
         className="mr-2 w-32 bg-green-300 text-gray-700 font-semibold py-2 px-4 rounded inline-block items-center">
-          Search</button>
+          Submit</button>
 
         <button type="reset" onClick={props.clearForm}
         className="mr-2 w-32 bg-purple-300 text-gray-700 font-semibold text- py-2 px-4 rounded inline-block items-center">
