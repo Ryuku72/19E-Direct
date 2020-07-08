@@ -204,7 +204,7 @@ function Departments() {
       }
     });
     setSearchState({ ...state, department: repArray})
-    console.log(repArray)
+    //console.log(repArray)
   }
   else if (state.sort === "Ascend" && state.order === "Department"){
     //console.log("Ascend Triggered")
@@ -229,7 +229,7 @@ function Departments() {
       }
     });
     setSearchState({ ...state, department: repArray})
-    console.log(repArray)
+    //console.log(repArray)
   }
   else if (state.sort === "Ascend" && state.order === "Manager"){
     //console.log("Ascend Triggered")
@@ -254,7 +254,7 @@ function Departments() {
       }
     });
     setSearchState({ ...state, department: repArray})
-    console.log(repArray)
+    //console.log(repArray)
   }
   else if (state.sort === "Ascend" && state.order === "Salary"){
     //console.log("Ascend Triggered")
@@ -279,7 +279,7 @@ function Departments() {
       }
     });
     setSearchState({ ...state, department: repArray})
-    console.log(repArray)
+    //console.log(repArray)
   }
   else if (state.sort === "Ascend" && state.order === "Employees"){
     //console.log("Ascend Triggered")
@@ -304,7 +304,7 @@ function Departments() {
       }
     });
     setSearchState({ ...state, department: repArray})
-    console.log(repArray)
+    //console.log(repArray)
   }
   
   }

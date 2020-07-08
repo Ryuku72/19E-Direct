@@ -52,7 +52,7 @@ for (var i = 0; i < roles.length; i++) {
     salary: numberWithCommas(wage[i])
   }
 }
-console.log(showArray)
+//console.log(showArray)
 
 for (var i = 0; i < roles.length; i++) {
   roleArray[i] = {
@@ -82,7 +82,7 @@ function Roles() {
     event.preventDefault();
     //console.log("clicked")
     //console.log(event.target.name)
-    console.log(state)
+    //console.log(state)
     setSearchState({ ...state, sort: event.target.name })
   }
 
@@ -95,13 +95,13 @@ function Roles() {
     event.preventDefault();
     //console.log("clicked")
     //console.log(event.target.name)
-    console.log(state)
+    //console.log(state)
     setSearchState({ ...state, order: event.target.name})
   }
 
   function onHandleFormSubmit(event) {
     event.preventDefault();
-    console.log("submitted")
+    //console.log("submitted")
 
     function compareValues(key, order = 'asc') {
       return function innerSort(a, b) {
@@ -152,7 +152,7 @@ function Roles() {
         }
       });
       setSearchState({ ...state, role: repArray})
-      console.log(repArray)
+      //console.log(repArray)
     }
     else if (state.sort === "Ascend" && state.order === "Roles"){
       //console.log("Ascend Triggered")
@@ -202,7 +202,7 @@ function Roles() {
         }
       });
       setSearchState({ ...state, role: repArray})
-      console.log(repArray)
+      //console.log(repArray)
     }
     else if (state.sort === "Ascend" && state.order === "Salary"){
       //console.log("Ascend Triggered")
@@ -227,7 +227,7 @@ function Roles() {
         }
       });
       setSearchState({ ...state, role: repArray})
-      console.log(repArray)
+      //console.log(repArray)
     }
     else if (state.sort === "Ascend" && state.order === "Position"){
       //console.log("Ascend Triggered")
@@ -252,7 +252,7 @@ function Roles() {
         }
       });
       setSearchState({ ...state, role: repArray})
-      console.log(repArray)
+      //console.log(repArray)
     }
 
   }

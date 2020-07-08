@@ -325,7 +325,7 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
       };
     });
     setSearchState({ ...searchState, results: repArray, error: "", length: searchArray.length})
-    console.log(repArray)
+    //console.log(repArray)
    }
 
    else if (searchState.search === entry && searchState.sort === "Sort By" && searchState.order === "Salary"){
@@ -341,7 +341,7 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
       };
     });
     setSearchState({ ...searchState, results: repArray, error: "", length: searchArray.length})
-    console.log(repArray)
+    //console.log(repArray)
    }
 
      else if (searchState.search !== entry && searchState.sort === "Descend" && searchState.order === "Order By"){
@@ -537,7 +537,7 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
         };
       });
       setSearchState({ ...searchState, results: repArray, error: "", length: searchArray.length})
-      console.log(repArray)
+      //console.log(repArray)
      }
 
 
