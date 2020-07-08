@@ -260,7 +260,7 @@ function Roles() {
   return (
     <div className="mb-2">
       <div className="border-gray-600 border-b-2 transition duration-700 ease-out">
-      <h1 className="text-3xl font-mono">{"//"}ROLES: {rolesArray.length}</h1>
+      <h1 className="text-3xl font-mono">{"//"}ROLES: {roles.length}</h1>
       <form id="create-course-form" className="w-full inline-flex justify-end pb-2">
     <Dropdown style={{backgroundColor:"#90cdf4"}} title={state.order}>
             <ul className="dropdown-menu absolute text-gray-700 pt-2 z-50">
