@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Data from "../company.json";
 import Dropdown from "../components/Dropdown/Dropdown"
 import List from "../components/List/List";
+import { useSpring, animated} from 'react-spring'
 
 function numberWithCommas(x) {
   var parts = x.toString().split(".");
@@ -145,6 +146,9 @@ for (let i = 0; i < departments.length; i++) {
 //console.log(departmentArray)
 
 function Departments() {
+  const fade = useSpring({
+    from: { opacity: 0 }, opacity: 1 })
+
   const initialState = {
     department: showArray,
     sort: "Sort By",
@@ -356,7 +360,7 @@ function Departments() {
   }
 
     return (
-      <div className="mb-2 transition duration-700 ease-out">
+      <animated.div className="mb-2" style={fade}>
         <div className="border-gray-600 border-b-2">
     <h1 className="text-3xl font-mono">{"//"}DEPARTMENTS: {departmentArray.length}</h1>
     <div className="flex w-full z-20">
@@ -408,8 +412,7 @@ function Departments() {
           </List>
         ))}
         </div>
-      </div>
-     
+      </animated.div>
     )
 }
 

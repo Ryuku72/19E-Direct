@@ -4,6 +4,7 @@ import SearchForm from "../components/Searchform/SearchForm";
 import Hero from "../components/Hero/Hero"
 import Data from "../company.json";
 import Background from "../assets/wallpaper.jpg"
+import { useSpring, animated} from 'react-spring'
 
 function numberWithCommas(x) {
   var parts = x.toString().split(".");
@@ -40,6 +41,8 @@ const roles = [...new Set(roleArray)];
 const database = nameArray.concat(departments, roles)
 
 function Home() {
+
+const fade = useSpring({ from: { opacity: 0}, opacity: 1})
 
  const initialState = {
   search: JSON.stringify(""),
@@ -584,7 +587,7 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
   }
   
   return (
-    <div className="transition duration-700 ease-out">
+    <animated.div style={fade} className="transition duration-700 ease-out">
       <SearchForm 
         onHandleFormSubmit={onHandleFormSubmit}
         onHandleInputChange={onHandleInputChange}
@@ -621,7 +624,7 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
         />
       ))}
       </div>
-    </div>
+    </animated.div>
   );
 }
 

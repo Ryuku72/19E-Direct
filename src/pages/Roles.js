@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import List from "../components/List/List";
 import Data from "../company.json";
 import Dropdown from "../components/Dropdown/Dropdown"
+import { useSpring, animated } from "react-spring";
 
 function numberWithCommas(x) {
   var parts = x.toString().split(".");
@@ -99,6 +100,7 @@ for (let i = 0; i < roles.length; i++) {
 
 
 function Roles() {
+  const fade = useSpring({from:{opacity:0}, opacity:1})
   const initialState = {
     role: showArray,
     sort: "Sort By",
@@ -312,7 +314,7 @@ useEffect(() => {
   }
 
   return (
-    <div className="mb-2">
+    <animated.div style={fade} className="mb-2">
       <div className="border-gray-600 border-b-2 transition duration-700 ease-out">
       <h1 className="text-3xl font-mono">{"//"}ROLES: {roles.length}</h1>
       <form id="create-course-form" className="w-full inline-flex justify-end pb-2">
@@ -360,7 +362,7 @@ useEffect(() => {
     <p><strong>Positions:</strong> {result.number}</p>
      </List>
        ))}
-      </div>
+      </animated.div>
     )
 }
 

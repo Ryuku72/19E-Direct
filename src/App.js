@@ -10,6 +10,7 @@ import Footer from "./components/Footer/Footer"
 import Wrapper from "./components/Wrapper/Wrapper";
 
 function App() {
+
   return (
     <Router>
       <div className="flex flex-col">

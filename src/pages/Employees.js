@@ -2,6 +2,7 @@ import React, { useState, useEffect} from "react";
 import List from "../components/List/List";
 import Data from "../company.json";
 import Dropdown from "../components/Dropdown/Dropdown"
+import { useSpring, animated} from 'react-spring'
 
 function numberWithCommas(x) {
   var parts = x.toString().split(".");
@@ -58,6 +59,7 @@ const eArray = Data.sort(compareValues('name')).map(result => {
 
 
 function Employees() {
+  const fade = useSpring({ from: {opacity: 0}, opacity:1 })
  
   const initialState = {
     results: showArray,
@@ -354,7 +356,7 @@ function Employees() {
   }
 
     return (
-      <div className="transition duration-700 ease-out">
+      <animated.div style={fade} className="transition duration-700 ease-out">
         <div className="border-gray-600 border-b-2">
     <h1 className="text-3xl font-mono">{'//'}EMPLOYEES: {showArray.length}</h1>
     <div className="flex w-full z-20">
@@ -410,7 +412,7 @@ function Employees() {
     <p><strong>Role: </strong>{result.role}</p>
      </List>
        ))}
-       </div>
+       </animated.div>
     )
 }
 
