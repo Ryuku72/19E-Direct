@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import List from "../components/List/List";
 import Data from "../company.json";
-import Dropdown from "../components/Dropdown/Dropdown"
+import Button from "../components/Button/Button"
 import { useSpring, animated } from "react-spring";
 
 function numberWithCommas(x) {
@@ -101,6 +101,7 @@ for (let i = 0; i < roles.length; i++) {
 
 function Roles() {
   const fade = useSpring({from:{opacity:0}, opacity:1})
+  
   const initialState = {
     role: showArray,
     sort: "Sort By",
@@ -108,6 +109,16 @@ function Roles() {
   } 
   const [state, setSearchState] = useState(initialState);
 
+  const [toggled, setToggled] = useState({
+    roles: false,
+    position: false,
+    manager: false,
+    salary: false,
+  })
+  const [toggledTwo, setToggledTwo] = useState({
+    ascend: false,
+    descend: false
+  })
 
 useEffect(() => {
 
@@ -298,6 +309,12 @@ useEffect(() => {
     //console.log(event.target.name)
     //console.log(state)
     setSearchState({ ...state, sort: event.target.name })
+    if  (event.target.name === "Descend"){
+      setToggledTwo({descend:!false})
+    }
+    if  (event.target.name === "Ascend"){
+      setToggledTwo({ascend:!false})
+    }
   }
 
   function onHandleOrder(event){
@@ -306,47 +323,61 @@ useEffect(() => {
     //console.log(event.target.name)
     //console.log(state)
     setSearchState({ ...state, order: event.target.name})
+    if (event.target.name === "Roles"){
+      setToggled({roles:!false})
+    }
+    if (event.target.name === "Position"){
+      setToggled({position:!false})
+    } 
+    if (event.target.name === "Manager"){
+      setToggled({manager:!false}) 
+    } 
+    if (event.target.name === "Salary"){
+      setToggled({salary:!false})
+    }
   }
 
   function clearForm(){
     document.getElementById("create-course-form").reset();
     setSearchState(initialState)
+    setToggled(false)
+    setToggledTwo(false)
   }
 
   return (
     <animated.div style={fade} className="mb-2">
       <div className="border-gray-600 border-b-2 transition duration-700 ease-out">
       <h1 className="text-3xl font-mono">{"//"}ROLES: {roles.length}</h1>
-      <form id="create-course-form" className="w-full inline-flex justify-end pb-2">
-    <Dropdown style={{backgroundColor:"#90cdf4"}} title={state.order}>
-            <ul className="dropdown-menu absolute text-gray-700 pt-2 z-50">
+      <form id="create-course-form" className="w-full inline-flex justify-end pb-2">  
+          <Button style={{backgroundColor:"#90cdf4"}} title={state.order}>
+            <ul className="Button-menu absolute text-gray-700 pt-2 z-50">
               <li>
-                <a href="/" className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" name="Roles" onClick={onHandleOrder} >
+                <a href="/" className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" name="Roles" onClick={onHandleOrder} style={{color: toggled.roles ? "#f56565": "#4a5568"}}>
                 <i className="fas fa-tools mx-2" name="Roles"></i>Roles
                   </a></li>
               <li>
-                <a href="/" className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={onHandleOrder} name="Position">
+                <a href="/" className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={onHandleOrder} name="Position" style={{color: toggled.position ? "#f56565": "#4a5568"}}>
                 <i className="fas fa-sort-numeric-up mx-2" name="Position"></i>Position</a></li>
               <li>
-                <a href="/" className="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={onHandleOrder} name="Manager">
+                <a href="/" className="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={onHandleOrder} name="Manager" style={{color: toggled.manager ? "#f56565": "#4a5568"}}>
                 <i className="fas fa-user-tie mx-2" name="Manager"></i>Manager</a></li>
                 <li>
-                <a href="/" className="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={onHandleOrder} name="Salary">
+                <a href="/" className="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={onHandleOrder} name="Salary" style={{color: toggled.salary ? "#f56565": "#4a5568"}}>
                 <i className="fas fa-wallet mx-2" name="Salary"></i>Salary</a></li>
             </ul>
-            </Dropdown>
-            <Dropdown style={{backgroundColor:"#a0aec0"}} title={state.sort}>
+            </Button>
+            <Button style={{backgroundColor:"#a0aec0"}} title={state.sort}>
 
-<ul className="dropdown-menu absolute text-gray-700 pt-2 z-50">
+<ul className="Button-menu absolute  pt-2 z-50">
   <li>
-    <a href="/" className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={onHandleSort} name="Ascend">
+    <a href="/" className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={onHandleSort} name="Ascend" style={{color: toggledTwo.ascend ? "#f56565": "#4a5568"}}>
       <i className="fas fa-arrow-up mx-2" aria-hidden="true" name="Ascend"></i>Ascend
       </a></li>
   <li>
-    <a href="/" className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={onHandleSort} name="Descend">
+    <a href="/" className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={onHandleSort} name="Descend" style={{color: toggledTwo.descend ? "#f56565": "#4a5568"}}>
     <i className="fas fa-arrow-down mx-2" aria-hidden="true" name="Descend"></i>Descend</a></li>
 </ul>
-</Dropdown>
+</Button>
           <button type="reset" onClick={clearForm}
         className="mr-2 w-32 bg-purple-300 text-gray-700 font-semibold text- py-2 px-4 rounded inline-block items-center">
           Reset</button>

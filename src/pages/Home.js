@@ -42,7 +42,7 @@ const database = nameArray.concat(departments, roles)
 
 function Home() {
 
-const fade = useSpring({ from: { opacity: 0}, opacity: 1})
+ const fade = useSpring({ from: { opacity: 0}, opacity: 1})
 
  const initialState = {
   search: JSON.stringify(""),
@@ -587,7 +587,7 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
   }
   
   return (
-    <animated.div style={fade} className="transition duration-700 ease-out">
+    <animated.div style={fade}>
       <SearchForm 
         onHandleFormSubmit={onHandleFormSubmit}
         onHandleInputChange={onHandleInputChange}
