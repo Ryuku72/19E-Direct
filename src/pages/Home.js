@@ -51,10 +51,27 @@ function Home() {
   error: "",
   length: 0,
   sort: "Sort By",
-  order: "Order By"
+  order: "Order By",
+ }
+
+ const orderState = {
+  ascend: false,
+  descend: false
  }
 
   const [searchState, setSearchState] = useState(initialState);
+
+  const [toggled, setToggled] = useState({
+    entry: false,
+    roles: false,
+    department: false,
+    manager: false,
+    salary: false,
+  })
+  const [toggledTwo, setToggledTwo] = useState({
+    ascend: false,
+    descend: false
+  })
  
   function onHandleInputChange(event) {
     event.preventDefault();
@@ -65,6 +82,7 @@ function Home() {
   function clearForm(){
     document.getElementById("create-course-form").reset();
     setSearchState(initialState)
+    setToggledTwo(orderState)
   }
 
   function onHandleSort(event){
@@ -72,6 +90,13 @@ function Home() {
     //console.log("clicked")
     //console.log(event.target.name)
     setSearchState({ ...searchState, sort: event.target.name })
+    setSearchState({ ...searchState, sort: event.target.name })
+    if  (event.target.name === "Descend"){
+      setToggledTwo({descend:!false})
+    }
+    if  (event.target.name === "Ascend"){
+      setToggledTwo({ascend:!false})
+    }
   }
 
   function onHandleOrder(event){
@@ -79,6 +104,21 @@ function Home() {
     //console.log("clicked")
     //console.log(event.target.name)
     setSearchState({ ...searchState, order: event.target.name})
+    if (event.target.name === "Name"){
+      setToggled({entry:!false})
+    } 
+    if (event.target.name === "Department"){
+      setToggled({department:!false})
+    }
+    if (event.target.name === "Role"){
+      setToggled({role:!false})
+    } 
+    if (event.target.name === "Manager"){
+      setToggled({manager:!false}) 
+    } 
+    if (event.target.name === "Salary"){
+      setToggled({salary:!false})
+    }
   }
   
   function compareValues(key, order = 'asc') {
@@ -600,6 +640,13 @@ else if (searchState.search === entry && searchState.sort === "Sort By" && searc
         onHandleOrder={onHandleOrder}
         sort={searchState.sort}
         onHandleSort={onHandleSort}
+        department={{color: toggled.department ? "#f56565": "#4a5568"}}
+        role={{color: toggled.role ? "#f56565": "#4a5568"}}
+        entry={{color: toggled.entry ? "#f56565": "#4a5568"}}
+        salary={{color: toggled.salary ? "#f56565": "#4a5568"}}
+        manager={{color: toggled.manager ? "#f56565": "#4a5568"}}
+        ascend={{color: toggledTwo.ascend ? "#f56565": "#4a5568"}}
+        descend={{color: toggledTwo.descend ? "#f56565": "#4a5568"}}
         >  
         {searchState.error}
         </ SearchForm>
