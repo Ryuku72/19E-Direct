@@ -63,19 +63,18 @@ function Home() {
   descend: false
  }
 
+ const sortState = {
+  entry: false,
+  roles: false,
+  department: false,
+  manager: false,
+  salary: false,
+ }
+
   const [searchState, setSearchState] = useState(initialState);
 
-  const [toggled, setToggled] = useState({
-    entry: false,
-    roles: false,
-    department: false,
-    manager: false,
-    salary: false,
-  })
-  const [toggledTwo, setToggledTwo] = useState({
-    ascend: false,
-    descend: false
-  })
+  const [toggled, setToggled] = useState(sortState)
+  const [toggledTwo, setToggledTwo] = useState(orderState)
  
   function onHandleInputChange(event) {
     event.preventDefault();
@@ -87,6 +86,7 @@ function Home() {
     document.getElementById("create-course-form").reset();
     setSearchState(initialState)
     setToggledTwo(orderState)
+    setToggled(sortState)
   }
 
   function onHandleSort(event){
