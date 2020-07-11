@@ -2,36 +2,9 @@ import React, { useState, useEffect } from "react";
 import List from "../components/List/List";
 import Data from "../company.json";
 import Button from "../components/Button/Button"
+import Number from "../components/Number/Number";
+import Filter from "../utils/filter";
 import { useSpring, animated } from "react-spring";
-
-function numberWithCommas(x) {
-  var parts = x.toString().split(".");
-  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  return parts.join(".");
-}
-
-function compareValues(key, order = 'asc') {
-  return function innerSort(a, b) {
-    if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
-      // property doesn't exist on either object
-      return 0;
-    }
-    const varA = (typeof a[key] === 'string')
-      ? a[key].toUpperCase() : a[key];
-    const varB = (typeof b[key] === 'string')
-      ? b[key].toUpperCase() : b[key];
-
-    let comparison = 0;
-    if (varA > varB) {
-      comparison = 1;
-    } else if (varA < varB) {
-      comparison = -1;
-    }
-    return (
-      (order === 'desc') ? (comparison * -1) : comparison
-    );
-  };
-}
 
 const rolesArray = Data.map(result => {
   return result.role
@@ -71,17 +44,6 @@ const wage = getUniqueListBy(Data, 'role').map(result => {
 })
 
 const roleArray = []
-const showArray = []
-
-for (var i = 0; i < roles.length; i++) {
-    showArray[i] = {
-    name: roles[i],
-    number: roleNumberArray[i],
-    manager: managers[i],
-    salary: numberWithCommas(wage[i])
-  }
-}
-//console.log(showArray)
 
 for (let i = 0; i < roles.length; i++) {
   roleArray[i] = {
@@ -89,21 +51,13 @@ for (let i = 0; i < roles.length; i++) {
   number: roleNumberArray[i],
   manager: managers[i],
   salary: JSON.parse(wage[i])
-}
-}
-
-// console.log(roles)
-// console.log(managers)
-// console.log(roleNumberArray)
-// console.log(wage)
-// console.log(rolesArray)
-
+}}
 
 function Roles() {
   const fade = useSpring({from:{opacity:0}, opacity:1})
   
   const initialState = {
-    role: showArray,
+    role: roleArray,
     sort: "Sort By",
     order: "Order By"
   } 
@@ -121,186 +75,59 @@ function Roles() {
   })
 
 useEffect(() => {
-
   if (state.sort === "Sort By" && state.order === "Order By"){
-    setSearchState({ ...state, role: showArray})
+    setSearchState({ ...state, role: roleArray})
   }
-
-  else if (state.sort === "Sort By" && state.order === "Roles"){
-    //console.log("Ascend Triggered")
-    let repArray = roleArray.sort(compareValues('name')).map(result => {
-      return{
-        name: result.name,
-        number: result.number,
-        manager: result.manager,
-        salary: numberWithCommas(result.salary)
-      }
-    });
-    setSearchState({ ...state, role: repArray})
-  }
-  else if (state.sort === "Sort By" && state.order === "Position"){
-    //console.log("Ascend Triggered")
-    let repArray = roleArray.sort(compareValues('number')).map(result => {
-      return{
-        name: result.name,
-        number: result.number,
-        manager: result.manager,
-        salary: numberWithCommas(result.salary)
-      }
-    });
-    setSearchState({ ...state, role: repArray})
-  }
-  else if (state.sort === "Sort By" && state.order === "Manager"){
-    //console.log("Ascend Triggered")
-    let repArray = roleArray.sort(compareValues('manager')).map(result => {
-      return{
-        name: result.name,
-        number: result.number,
-        manager: result.manager,
-        salary: numberWithCommas(result.salary)
-      }
-    });
-    setSearchState({ ...state, role: repArray})
-  }
-  else if (state.sort === "Sort By" && state.order === "Salary"){
-    //console.log("Ascend Triggered")
-    let repArray = roleArray.sort(compareValues('salary')).map(result => {
-      return{
-        name: result.name,
-        number: result.number,
-        manager: result.manager,
-        salary: numberWithCommas(result.salary)
-      }
-    });
+  else if ((state.sort === "Sort By" && state.order === "Roles") || (state.sort === "Ascend" && state.order === "Order By") || (state.sort === "Ascend" && state.order === "Roles")){
+    let repArray = roleArray.sort(Filter.compareValues('name'))
     setSearchState({ ...state, role: repArray})
   }
 
-  else if (state.sort === "Ascend" && state.order === "Order By"){
+  else if ((state.sort === "Descend" && state.order === "Order By") || (state.sort === "Descend" && state.order === "Roles")){
+    let repArray = roleArray.sort(Filter.compareValues('name', 'desc'))
+    setSearchState({ ...state, role: repArray})
+  }
+
+
+  else if ((state.sort === "Sort By" && state.order === "Position") || (state.sort === "Ascend" && state.order === "Position")){
     //console.log("Ascend Triggered")
-    let repArray = roleArray.sort(compareValues('name')).map(result => {
-      return{
-        name: result.name,
-        number: result.number,
-        manager: result.manager,
-        salary: numberWithCommas(result.salary)
-      }
-    });
+    let repArray = roleArray.sort(Filter.compareValues('number'))
     setSearchState({ ...state, role: repArray})
   }
-  else if (state.sort === "Descend" && state.order === "Order By"){
-    //console.log("Descend Triggered")
-    let repArray = roleArray.sort(compareValues('name', 'desc')).map(result => {
-      return{
-        name: result.name,
-        number: result.number,
-        manager: result.manager,
-        salary: numberWithCommas(result.salary)
-      }
-    });
-    setSearchState({ ...state, role: repArray})
-    //console.log(repArray)
-  }
-  else if (state.sort === "Ascend" && state.order === "Roles"){
-    //console.log("Ascend Triggered")
-    let repArray = roleArray.sort(compareValues('name')).map(result => {
-      return{
-        name: result.name,
-        number: result.number,
-        manager: result.manager,
-        salary: numberWithCommas(result.salary)
-      }
-    });
-    setSearchState({ ...state, role: repArray})
-  }
-  else if (state.sort === "Descend" && state.order === "Roles"){
-    //console.log("Descend Triggered")
-    let repArray = roleArray.sort(compareValues('name', 'desc')).map(result => {
-      return{
-        name: result.name,
-        number: result.number,
-        manager: result.manager,
-        salary: numberWithCommas(result.salary)
-      }
-    });
-    setSearchState({ ...state, role: repArray})
-    console.log(repArray)
-  }
-  else if (state.sort === "Ascend" && state.order === "Manager"){
-    //console.log("Ascend Triggered")
-    let repArray = roleArray.sort(compareValues('manager')).map(result => {
-      return{
-        name: result.name,
-        number: result.number,
-        manager: result.manager,
-        salary: numberWithCommas(result.salary)
-      }
-    });
-    setSearchState({ ...state, role: repArray})
-  }
-  else if (state.sort === "Descend" && state.order === "Manager"){
-    //console.log("Descend Triggered")
-    let repArray = roleArray.sort(compareValues('manager', 'desc')).map(result => {
-      return{
-        name: result.name,
-        number: result.number,
-        manager: result.manager,
-        salary: numberWithCommas(result.salary)
-      }
-    });
-    setSearchState({ ...state, role: repArray})
-    //console.log(repArray)
-  }
-  else if (state.sort === "Ascend" && state.order === "Salary"){
-    //console.log("Ascend Triggered")
-    let repArray = roleArray.sort(compareValues('salary')).map(result => {
-      return{
-        name: result.name,
-        number: result.number,
-        manager: result.manager,
-        salary: numberWithCommas(result.salary)
-      }
-    });
-    setSearchState({ ...state, role: repArray})
-  }
-  else if (state.sort === "Descend" && state.order === "Salary"){
-    //console.log("Descend Triggered")
-    let repArray = roleArray.sort(compareValues('salary', 'desc')).map(result => {
-      return{
-        name: result.name,
-        number: result.number,
-        manager: result.manager,
-        salary: numberWithCommas(result.salary)
-      }
-    });
-    setSearchState({ ...state, role: repArray})
-    //console.log(repArray)
-  }
-  else if (state.sort === "Ascend" && state.order === "Position"){
-    //console.log("Ascend Triggered")
-    let repArray = roleArray.sort(compareValues('number')).map(result => {
-      return{
-        name: result.name,
-        number: result.number,
-        manager: result.manager,
-        salary: numberWithCommas(result.salary)
-      }
-    });
-    setSearchState({ ...state, role: repArray})
-  }
+
   else if (state.sort === "Descend" && state.order === "Position"){
     //console.log("Descend Triggered")
-    let repArray = roleArray.sort(compareValues('number', 'desc')).map(result => {
-      return{
-        name: result.name,
-        number: result.number,
-        manager: result.manager,
-        salary: numberWithCommas(result.salary)
-      }
-    });
+    let repArray = roleArray.sort(Filter.compareValues('number', 'desc'))
     setSearchState({ ...state, role: repArray})
     //console.log(repArray)
   }
-  
+
+  else if ((state.sort === "Sort By" && state.order === "Manager") || (state.sort === "Ascend" && state.order === "Manager")){
+    //console.log("Ascend Triggered")
+    let repArray = roleArray.sort(Filter.compareValues('manager'))
+    setSearchState({ ...state, role: repArray})
+  }
+
+  else if (state.sort === "Descend" && state.order === "Manager"){
+    //console.log("Descend Triggered")
+    let repArray = roleArray.sort(Filter.compareValues('manager', 'desc'))
+    setSearchState({ ...state, role: repArray})
+    //console.log(repArray)
+  }
+
+  else if ((state.sort === "Sort By" && state.order === "Salary") || (state.sort === "Ascend" && state.order === "Salary")){
+    //console.log("Ascend Triggered")
+    let repArray = roleArray.sort(Filter.compareValues('salary'))
+    setSearchState({ ...state, role: repArray})
+  }
+
+  else {
+    //console.log("Descend Triggered")
+    let repArray = roleArray.sort(Filter.compareValues('salary', 'desc'))
+    setSearchState({ ...state, role: repArray})
+    //console.log(repArray)
+  }
+
 },[state.sort, state.order])
  
   function onHandleSort(event){
@@ -384,13 +211,11 @@ useEffect(() => {
         </form>
         </div>
      {state.role.map(result => (
-     <List
-     key = {result.name}
-     manager= {result.manager}
-     salary= {result.salary}
-     >
+     <List key = {result.name}>
     <h1><strong>Role:</strong> {result.name}</h1>
     <p><strong>Positions:</strong> {result.number}</p>
+    <p><strong>Manager: </strong> {result.manager}</p>
+    <p><strong>Salary </strong> <Number value= {result.salary}/></p>
      </List>
        ))}
       </animated.div>

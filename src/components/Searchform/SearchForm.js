@@ -25,7 +25,7 @@ function SearchForm(props) {
         />
         <ul className="dropdown-menu absolute hidden text-gray-700 pt-1">
       <li>
-        <a href='/#' className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" >
+        <a href='/#' className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" >
           One
           </a></li>
       </ul>
@@ -42,14 +42,14 @@ function SearchForm(props) {
                 <i className="fas fa-font mx-2" name="Name"></i>Name
                   </a></li>
               <li>
-                <a href="/" className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" name="Department" onClick={props.onHandleOrder} style={props.department}>
+                <a href="/" className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" name="Department" onClick={props.onHandleOrder} style={props.department}>
                 <i className="far fa-building mx-2" name="Department"></i>Department
                   </a></li>
               <li>
                 <a href="/" className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={props.onHandleOrder} style={props.role} name="Role" >
                 <i className="fas fas fa-tools mx-2" name="Role"></i>Role</a></li>
               <li>
-                <a href="/" className="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={props.onHandleOrder} style={props.manager} name="Manager">
+                <a href="/" className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={props.onHandleOrder} style={props.manager} name="Manager">
                 <i className="fas fa-user-tie mx-2" name="Manager"></i>Manager</a></li>
                 <li>
                 <a href="/" className="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={props.onHandleOrder} name="Salary" style={props.salary}>
@@ -64,7 +64,7 @@ function SearchForm(props) {
                   <i className="fas fa-arrow-up mx-2" aria-hidden="true" name="Ascend"></i>Ascend
                   </a></li>
               <li>
-                <a href="/" className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={props.onHandleSort} name="Descend" style={props.descend}>
+                <a href="/" className="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={props.onHandleSort} name="Descend" style={props.descend}>
                 <i className="fas fa-arrow-down mx-2" aria-hidden="true" name="Descend"></i>Descend</a></li>
             </ul>
             </Button>
