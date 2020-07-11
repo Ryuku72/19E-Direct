@@ -8,7 +8,7 @@ const departmentClassMap = {
   legal: "bg-blue-300",
   "research and development": "bg-pink-300",
   "information technology": "bg-green-300",
-  enquiries: "enquiries",
+  enquiries: "bg-yellow-300"
 }
 
 function Card(props) {
