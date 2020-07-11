@@ -220,7 +220,7 @@ function Employees() {
                   <i className="fas fa-arrow-up mx-2" aria-hidden="true" name="Ascend"></i>Ascend
                   </a></li>
               <li>
-                <a href="/" className="w-full bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={onHandleSort} name="Descend" style={{color: toggledTwo.descend ? "#f56565": "#4a5568"}}>
+                <a href="/" className="w-full rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={onHandleSort} name="Descend" style={{color: toggledTwo.descend ? "#f56565": "#4a5568"}}>
                 <i className="fas fa-arrow-down mx-2" aria-hidden="true" name="Descend"></i>Descend</a></li>
             </ul>
             </Button>

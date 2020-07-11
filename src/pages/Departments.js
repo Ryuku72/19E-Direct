@@ -217,7 +217,7 @@ function Departments() {
                 <li>
                   <a
                     href="/"
-                    className="rounded-b w-full bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                    className="w-full bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
                     onClick={onHandleOrder}
                     name="Manager"
                     style={{ color: toggled.manager ? "#f56565" : "#4a5568" }}
@@ -260,7 +260,7 @@ function Departments() {
                 <li>
                   <a
                     href="/"
-                    className="w-full bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                    className="w-full bg-gray-200 rounded-t hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
                     onClick={onHandleSort}
                     name="Descend"
                     style={{
@@ -280,7 +280,7 @@ function Departments() {
             <button
               type="reset"
               onClick={clearForm}
-              className="mr-2 w-32 bg-purple-300 text-gray-700 font-semibold text- py-2 px-4 rounded inline-block items-center"
+              className="mr-2 w-32 rounded-b bg-purple-300 text-gray-700 font-semibold text- py-2 px-4 rounded inline-block items-center"
             >
               Reset
             </button>
