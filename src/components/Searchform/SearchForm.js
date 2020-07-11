@@ -10,8 +10,8 @@ function SearchForm(props) {
       <div className="form-group inline-flex w-full h-10">
         <label htmlFor="employee" className="inline-flex text-base items-end"></label>
         <div className="border-2 w-2/3 mr-2 shadow-lg p-1 inline-flex align-middle items-center">
-        <div className="border-r-2 h-full w-1/12 inline-flex justify-center items-center">
-        <i className="fas fa-project-diagram mr-2"></i>
+        <div className="border-r-2 h-full w-1/6 block justify-center items-center text-center text-lg">
+       {props.JPN}
         </div>
         <input
           value={props.search}

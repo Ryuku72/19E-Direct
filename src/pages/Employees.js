@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from "react";
 import List from "../components/List/List";
 import Data from "../company.json";
+import JPN from "../japanese.json";
 import Button from "../components/Button/Button"
 import Number from "../components/Number/Number"
 import Filter from "../utils/filter"
@@ -187,7 +188,7 @@ function Employees() {
     return (
       <animated.div style={fade} className="transition duration-700 ease-out">
         <div className="border-gray-600 border-b-2">
-    <h1 className="text-3xl font-mono">{'//'}EMPLOYEES: {eArray.length}</h1>
+    <h1 className="text-3xl font-mono">{JPN[3].name} {'//'} EMPLOYEES: {eArray.length}</h1>
     <div className="flex w-full z-20">
     <form id="create-course-form" className="w-full inline-flex justify-end pb-2">
     <Button style={{backgroundColor:"#90cdf4"}} title={searchState.order}>

@@ -6,6 +6,7 @@ import Filter from "../utils/filter";
 import Background from "../assets/wallpaper.jpg";
 import { useSpring, animated } from "react-spring";
 import Data from "../company.json";
+import JPN from "../japanese.json";
 
 const newArray = Data.map((result) => {
   return {
@@ -362,6 +363,7 @@ function Home() {
   return (
     <animated.div style={fade}>
       <SearchForm
+        JPN = {JPN[0].name}
         onHandleFormSubmit={onHandleFormSubmit}
         onHandleInputChange={onHandleInputChange}
         clearForm={clearForm}

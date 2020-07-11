@@ -5,6 +5,7 @@ import List from "../components/List/List";
 import Number from "../components/Number/Number";
 import Filter from "../utils/filter";
 import { useSpring, animated } from "react-spring";
+import JPN from "../japanese.json";
 
 const departments = [...new Set(Data.map((result) => {
   return result.department;
@@ -57,6 +58,7 @@ for (let i = 0; i < departments.length; i++) {
 }
 
 function Departments() {
+  const JPN0 = (JPN[1].name)
   const fade = useSpring({
     from: { opacity: 0 },
     opacity: 1,
@@ -167,13 +169,15 @@ function Departments() {
       setToggled({ salary: !false });
     }
   }
+  console.log(JPN0)
 
   return (
     <animated.div className="mb-2" style={fade}>
       <div className="border-gray-600 border-b-2">
         <h1 className="text-3xl font-mono">
-          {"//"}DEPARTMENTS: {departmentArray.length}
+          {JPN0} {"//"} DEPARTMENTS: {departmentArray.length}
         </h1>
+        
         <div className="flex w-full z-20">
           <form
             id="create-course-form"

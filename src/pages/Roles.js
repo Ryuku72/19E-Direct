@@ -5,6 +5,7 @@ import Button from "../components/Button/Button"
 import Number from "../components/Number/Number";
 import Filter from "../utils/filter";
 import { useSpring, animated } from "react-spring";
+import JPN from "../japanese.json";
 
 const rolesArray = Data.map(result => {
   return result.role
@@ -171,7 +172,7 @@ useEffect(() => {
   return (
     <animated.div style={fade} className="mb-2">
       <div className="border-gray-600 border-b-2 transition duration-700 ease-out">
-      <h1 className="text-3xl font-mono">{"//"}ROLES: {roles.length}</h1>
+      <h1 className="text-3xl font-mono">{JPN[2].name} {"//"} ROLES: {roles.length}</h1>
       <form id="create-course-form" className="w-full inline-flex justify-end pb-2">  
           <Button style={{backgroundColor:"#90cdf4"}} title={state.order}>
             <ul className="Button-menu absolute text-gray-700 pt-2 z-50">
