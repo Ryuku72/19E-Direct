@@ -58,7 +58,7 @@ for (let i = 0; i < departments.length; i++) {
 }
 
 function Departments() {
-  const JPN0 = (JPN[1].name)
+  const JPN0 = JPN[1].name;
   const fade = useSpring({
     from: { opacity: 0 },
     opacity: 1,
@@ -102,34 +102,34 @@ function Departments() {
       (state.sort === "Ascend" && state.order === "Employees")
     ) {
       let repArray = departmentArray.sort(Filter.compareValues("number"));
-      setSearchState({ ...state,  department: repArray });
+      setSearchState({ ...state, department: repArray });
     } else if (state.sort === "Descend" && state.order === "Employees") {
       let repArray = departmentArray.sort(
         Filter.compareValues("number", "desc")
       );
-      setSearchState({ ...state,  department: repArray });
+      setSearchState({ ...state, department: repArray });
     } else if (
       (state.sort === "Sort By" && state.order === "Manager") ||
       (state.sort === "Ascend" && state.order === "Manager")
     ) {
       let repArray = departmentArray.sort(Filter.compareValues("manager"));
-      setSearchState({ ...state,  department: repArray });
+      setSearchState({ ...state, department: repArray });
     } else if (state.sort === "Descend" && state.order === "Manager") {
       let repArray = departmentArray.sort(
         Filter.compareValues("manager", "desc")
       );
-      setSearchState({ ...state,  department: repArray });
+      setSearchState({ ...state, department: repArray });
     } else if (
       (state.sort === "Sort By" && state.order === "Salary") ||
       (state.sort === "Ascend" && state.order === "Salary")
     ) {
       let repArray = departmentArray.sort(Filter.compareValues("salary"));
-      setSearchState({ ...state,  department: repArray });
+      setSearchState({ ...state, department: repArray });
     } else {
       let repArray = departmentArray.sort(
         Filter.compareValues("salary", "desc")
       );
-      setSearchState({ ...state,  department: repArray });
+      setSearchState({ ...state, department: repArray });
     }
   }, [state.department, state.sort, state.order]);
 
@@ -169,7 +169,7 @@ function Departments() {
       setToggled({ salary: !false });
     }
   }
-  console.log(JPN0)
+  console.log(JPN0);
 
   return (
     <animated.div className="mb-2" style={fade}>
@@ -177,7 +177,7 @@ function Departments() {
         <h1 className="text-3xl font-mono">
           {JPN0} {"//"} DEPARTMENTS: {departmentArray.length}
         </h1>
-        
+
         <div className="flex w-full z-20">
           <form
             id="create-course-form"
@@ -244,7 +244,7 @@ function Departments() {
                 <li>
                   <a
                     href="/"
-                    className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                    className="w-full rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
                     onClick={onHandleSort}
                     name="Ascend"
                     style={{ color: toggledTwo.ascend ? "#f56565" : "#4a5568" }}
@@ -260,7 +260,7 @@ function Departments() {
                 <li>
                   <a
                     href="/"
-                    className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                    className="w-full bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
                     onClick={onHandleSort}
                     name="Descend"
                     style={{
