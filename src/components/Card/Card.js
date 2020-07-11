@@ -2,8 +2,6 @@ import React from "react";
 import Number from "../Number/Number"
 import "./style.css";
 
-const items = ["#807feb", "#7fb5eb","#7febc7", ,  "#eb7fb0", "#ebc27f", "#eb7f7f", "#ae7feb", "#e81f63", "#7fb9eb"];
-
 const departmentClassMap = {
   common: "bg-purple-300",
   marketing: "bg-gray-300",

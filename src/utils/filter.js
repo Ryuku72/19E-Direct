@@ -22,5 +22,8 @@ export default {
     };
   },
 
-
+average: function(array) {
+    return array.reduce((accumulator, currentValue) => accumulator + currentValue) / array.length;
+  }
+  
 }

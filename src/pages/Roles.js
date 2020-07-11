@@ -92,7 +92,7 @@ useEffect(() => {
   else if ((state.sort === "Sort By" && state.order === "Position") || (state.sort === "Ascend" && state.order === "Position")){
     //console.log("Ascend Triggered")
     let repArray = roleArray.sort(Filter.compareValues('number'))
-    setSearchState({ ...state, role: repArray})
+    setSearchState({...state, role: repArray})
   }
 
   else if (state.sort === "Descend" && state.order === "Position"){
@@ -132,9 +132,6 @@ useEffect(() => {
  
   function onHandleSort(event){
     event.preventDefault();
-    //console.log("clicked")
-    //console.log(event.target.name)
-    //console.log(state)
     setSearchState({ ...state, sort: event.target.name })
     if  (event.target.name === "Descend"){
       setToggledTwo({descend:!false})

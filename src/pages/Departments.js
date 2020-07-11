@@ -6,94 +6,44 @@ import Number from "../components/Number/Number";
 import Filter from "../utils/filter";
 import { useSpring, animated } from "react-spring";
 
-const departArray = Data.map((result) => {
+const departments = [...new Set(Data.map((result) => {
   return result.department;
-});
-const departments = [...new Set(departArray)];
+}))];
 
-const managerArray = Data.map((result) => {
+const managers = [...new Set(Data.map((result) => {
   return result.manager;
-});
-const managers = [...new Set(managerArray)];
+}))];
 
 const employeesByDepartment = Data.reduce((acc, result) => {
   acc[result.department] = acc[result.department] + 1 || 1;
   return acc;
 }, {});
 
-const employeeNumber = Object.keys(employeesByDepartment).map(function (key) {
+const employeeNumberArray = Object.keys(employeesByDepartment).map(key => {
   return [employeesByDepartment[key]];
-});
-
-const employeeNumberArray = employeeNumber.reduce(
-  (acc, it) => [...acc, ...it],
-  []
+}).reduce((acc, it) => [...acc, ...it],[]
 );
 
 const salaryArray = [];
 
-const reducer = (accumulator, currentValue) => accumulator + currentValue;
-function average(array) {
-  return array.reduce(reducer) / array.length;
+function salaryFilter(department, database) {
+  let array = department;
+  let db = database
+  return db.filter((item) => {
+  return Object.keys(item).some((key) => item[key].includes(array));
+}).map((result) => {
+  let amount = parseInt(result.salary, 10);
+  return amount
+})
 }
 
-const dep1 = "Common";
-const commonArray = Data.filter((item) => {
-  return Object.keys(item).some((key) => item[key].includes(dep1));
-}).map((result) => {
-  return parseInt(result.salary, 10);
-});
-salaryArray.push(average(commonArray).toFixed(0));
-
-const dep2 = "Marketing";
-const markArray = Data.filter((item) => {
-  return Object.keys(item).some((key) => item[key].includes(dep2));
-}).map((result) => {
-  return parseInt(result.salary, 10);
-});
-salaryArray.push(average(markArray).toFixed(0));
-
-const dep3 = "Legal";
-const legalArray = Data.filter((item) => {
-  return Object.keys(item).some((key) => item[key].includes(dep3));
-}).map((result) => {
-  return parseInt(result.salary, 10);
-});
-salaryArray.push(average(legalArray).toFixed(0));
-
-const dep4 = "Research and Development";
-const rndArray = Data.filter((item) => {
-  return Object.keys(item).some((key) => item[key].includes(dep4));
-}).map((result) => {
-  return parseInt(result.salary, 10);
-});
-salaryArray.push(average(rndArray).toFixed(0));
-
-const dep5 = "Information Technology";
-const itArray = Data.filter((item) => {
-  return Object.keys(item).some((key) => item[key].includes(dep5));
-}).map((result) => {
-  return parseInt(result.salary, 10);
-});
-salaryArray.push(average(itArray).toFixed(0));
-
-const dep6 = "Enquiries";
-const enqArray = Data.filter((item) => {
-  return Object.keys(item).some((key) => item[key].includes(dep6));
-}).map((result) => {
-  return parseInt(result.salary, 10);
-});
-salaryArray.push(average(enqArray).toFixed(0));
-
-const dep7 = "Security";
-const secArray = Data.filter((item) => {
-  return Object.keys(item).some((key) => item[key].includes(dep7));
-}).map((result) => {
-  return parseInt(result.salary, 10);
-});
-salaryArray.push(average(secArray).toFixed(0));
-
-//console.log(salaryArray)
+salaryArray.push(Filter.average(salaryFilter("Common", Data)).toFixed(0))
+salaryArray.push(Filter.average(salaryFilter("Marketing", Data)).toFixed(0))
+salaryArray.push(Filter.average(salaryFilter("Legal", Data)).toFixed(0))
+salaryArray.push(Filter.average(salaryFilter("Research and Development", Data)).toFixed(0));
+salaryArray.push(Filter.average(salaryFilter("Information Technology", Data)).toFixed(0));
+salaryArray.push(Filter.average(salaryFilter("Enquiries", Data)).toFixed(0));
+salaryArray.push(Filter.average(salaryFilter("Security", Data)).toFixed(0));
 
 const departmentArray = [];
 
@@ -150,36 +100,36 @@ function Departments() {
       (state.sort === "Ascend" && state.order === "Employees")
     ) {
       let repArray = departmentArray.sort(Filter.compareValues("number"));
-      setSearchState({ ...state, department: repArray });
+      setSearchState({ ...state,  department: repArray });
     } else if (state.sort === "Descend" && state.order === "Employees") {
       let repArray = departmentArray.sort(
         Filter.compareValues("number", "desc")
       );
-      setSearchState({ ...state, department: repArray });
+      setSearchState({ ...state,  department: repArray });
     } else if (
       (state.sort === "Sort By" && state.order === "Manager") ||
       (state.sort === "Ascend" && state.order === "Manager")
     ) {
       let repArray = departmentArray.sort(Filter.compareValues("manager"));
-      setSearchState({ ...state, department: repArray });
+      setSearchState({ ...state,  department: repArray });
     } else if (state.sort === "Descend" && state.order === "Manager") {
       let repArray = departmentArray.sort(
         Filter.compareValues("manager", "desc")
       );
-      setSearchState({ ...state, department: repArray });
+      setSearchState({ ...state,  department: repArray });
     } else if (
       (state.sort === "Sort By" && state.order === "Salary") ||
       (state.sort === "Ascend" && state.order === "Salary")
     ) {
       let repArray = departmentArray.sort(Filter.compareValues("salary"));
-      setSearchState({ ...state, department: repArray });
+      setSearchState({ ...state,  department: repArray });
     } else {
       let repArray = departmentArray.sort(
         Filter.compareValues("salary", "desc")
       );
-      setSearchState({ ...state, department: repArray });
+      setSearchState({ ...state,  department: repArray });
     }
-  }, [state.sort, state.order]);
+  }, [state.department, state.sort, state.order]);
 
   function onHandleSort(event) {
     event.preventDefault();
@@ -202,7 +152,6 @@ function Departments() {
 
   function onHandleOrder(event) {
     event.preventDefault();
-    console.log(event.target.name);
 
     setSearchState({ ...state, order: event.target.name });
     if (event.target.name === "Department") {

@@ -4,12 +4,9 @@ import Data from "../company.json";
 import Button from "../components/Button/Button"
 import Number from "../components/Number/Number"
 import Filter from "../utils/filter"
-import {
-  useSpring,
-  animated
-} from 'react-spring'
+import {useSpring, animated } from 'react-spring'
 
-const eArray = Data.sort(Filter.compareValues('name')).map(result => {
+const eArray = Data.map(result => {
   return {
     name: result.name,
     department: result.department,
@@ -53,7 +50,6 @@ function Employees() {
         ...searchState,
         results: eArray,
         error: "",
-        length: eArray.length
       })
     } else if ((searchState.sort === "Sort By" && searchState.order === "Name") || (searchState.sort === "Ascend" && searchState.order === "Order By") || (searchState.sort === "Ascend" && searchState.order === "Name")) {
       let repArray = eArray.sort(Filter.compareValues('name'))
@@ -61,7 +57,6 @@ function Employees() {
         ...searchState,
         results: repArray,
         error: "",
-        length: eArray.length
       })
     } else if ((searchState.sort === "Descend" && searchState.order === "Order By") || (searchState.sort === "Descend" && searchState.order === "Name")) {
       let repArray = eArray.sort(Filter.compareValues('name', 'desc'))
@@ -69,7 +64,6 @@ function Employees() {
         ...searchState,
         results: repArray,
         error: "",
-        length: eArray.length
       })
     } else if (searchState.sort === "Descend" && searchState.order === "Department") {
       let repArray = eArray.sort(Filter.compareValues('department', 'desc'))
@@ -77,7 +71,6 @@ function Employees() {
         ...searchState,
         results: repArray,
         error: "",
-        length: eArray.length
       })
     } else if ((searchState.sort === "Ascend" && searchState.order === "Department") || (searchState.sort === "Sort By" && searchState.order === "Department")) {
       let repArray = eArray.sort(Filter.compareValues('department'))
@@ -85,7 +78,6 @@ function Employees() {
         ...searchState,
         results: repArray,
         error: "",
-        length: eArray.length
       })
     } else if (searchState.sort === "Descend" && searchState.order === "Role") {
       let repArray = eArray.sort(Filter.compareValues('role', 'desc'))
@@ -93,7 +85,6 @@ function Employees() {
         ...searchState,
         results: repArray,
         error: "",
-        length: eArray.length
       })
     } else if ((searchState.sort === "Ascend" && searchState.order === "Role") || (searchState.sort === "Sort By" && searchState.order === "Role")) {
       let repArray = eArray.sort(Filter.compareValues('role'))
@@ -101,7 +92,6 @@ function Employees() {
         ...searchState,
         results: repArray,
         error: "",
-        length: eArray.length
       })
     } else if (searchState.sort === "Descend" && searchState.order === "Manager") {
       let repArray = eArray.sort(Filter.compareValues('manager', 'desc'))
@@ -109,7 +99,6 @@ function Employees() {
         ...searchState,
         results: repArray,
         error: "",
-        length: eArray.length
       })
     } else if ((searchState.sort === "Ascend" && searchState.order === "Manager") || (searchState.sort === "Sort By" && searchState.order === "Manager")) {
       let repArray = eArray.sort(Filter.compareValues('manager'))
@@ -117,7 +106,6 @@ function Employees() {
         ...searchState,
         results: repArray,
         error: "",
-        length: eArray.length
       })
     } else if (searchState.sort === "Descend" && searchState.order === "Salary") {
       let repArray = eArray.sort(Filter.compareValues('salary', 'desc'))
@@ -125,15 +113,6 @@ function Employees() {
         ...searchState,
         results: repArray,
         error: "",
-        length: eArray.length
-      })
-    } else if (searchState.sort === "Ascend" && searchState.order === "Salary") {
-      let repArray = eArray.sort(Filter.compareValues('salary'))
-      setSearchState({
-        ...searchState,
-        results: repArray,
-        error: "",
-        length: eArray.length
       })
     } else {
       let repArray = eArray.sort(Filter.compareValues('salary'))
@@ -141,7 +120,6 @@ function Employees() {
         ...searchState,
         results: repArray,
         error: "",
-        length: eArray.length
       })
     }
   }, [searchState.sort, searchState.order])
