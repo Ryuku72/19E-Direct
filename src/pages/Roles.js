@@ -177,17 +177,17 @@ useEffect(() => {
           <Button style={{backgroundColor:"#90cdf4"}} title={state.order}>
             <ul className="Button-menu absolute text-gray-700 pt-2 z-50">
               <li>
-                <a href="/" className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" name="Roles" onClick={onHandleOrder} style={{color: toggled.roles ? "#f56565": "#4a5568"}}>
+                <a href="/" className="w-full rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" name="Roles" onClick={onHandleOrder} style={{color: toggled.roles ? "#f56565": "#4a5568"}}>
                 <i className="fas fa-tools mx-2" name="Roles"></i>Roles
                   </a></li>
               <li>
-                <a href="/" className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={onHandleOrder} name="Position" style={{color: toggled.position ? "#f56565": "#4a5568"}}>
+                <a href="/" className="w-full bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={onHandleOrder} name="Position" style={{color: toggled.position ? "#f56565": "#4a5568"}}>
                 <i className="fas fa-sort-numeric-up mx-2" name="Position"></i>Position</a></li>
               <li>
-                <a href="/" className="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={onHandleOrder} name="Manager" style={{color: toggled.manager ? "#f56565": "#4a5568"}}>
+                <a href="/" className="w-full rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={onHandleOrder} name="Manager" style={{color: toggled.manager ? "#f56565": "#4a5568"}}>
                 <i className="fas fa-user-tie mx-2" name="Manager"></i>Manager</a></li>
                 <li>
-                <a href="/" className="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={onHandleOrder} name="Salary" style={{color: toggled.salary ? "#f56565": "#4a5568"}}>
+                <a href="/" className="w-full rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={onHandleOrder} name="Salary" style={{color: toggled.salary ? "#f56565": "#4a5568"}}>
                 <i className="fas fa-wallet mx-2" name="Salary"></i>Salary</a></li>
             </ul>
             </Button>
@@ -195,11 +195,11 @@ useEffect(() => {
 
 <ul className="Button-menu absolute  pt-2 z-50">
   <li>
-    <a href="/" className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={onHandleSort} name="Ascend" style={{color: toggledTwo.ascend ? "#f56565": "#4a5568"}}>
+    <a href="/" className="w-full rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={onHandleSort} name="Ascend" style={{color: toggledTwo.ascend ? "#f56565": "#4a5568"}}>
       <i className="fas fa-arrow-up mx-2" aria-hidden="true" name="Ascend"></i>Ascend
       </a></li>
   <li>
-    <a href="/" className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={onHandleSort} name="Descend" style={{color: toggledTwo.descend ? "#f56565": "#4a5568"}}>
+    <a href="/" className="w-full bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={onHandleSort} name="Descend" style={{color: toggledTwo.descend ? "#f56565": "#4a5568"}}>
     <i className="fas fa-arrow-down mx-2" aria-hidden="true" name="Descend"></i>Descend</a></li>
 </ul>
 </Button>

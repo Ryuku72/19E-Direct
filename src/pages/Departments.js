@@ -202,7 +202,7 @@ function Departments() {
                 <li>
                   <a
                     href="/"
-                    className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                    className="bg-gray-200 w-full hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
                     onClick={onHandleOrder}
                     name="Employees"
                     style={{ color: toggled.employees ? "#f56565" : "#4a5568" }}
@@ -217,7 +217,7 @@ function Departments() {
                 <li>
                   <a
                     href="/"
-                    className="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                    className="rounded-b w-full bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
                     onClick={onHandleOrder}
                     name="Manager"
                     style={{ color: toggled.manager ? "#f56565" : "#4a5568" }}
@@ -229,7 +229,7 @@ function Departments() {
                 <li>
                   <a
                     href="/"
-                    className="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                    className="rounded-b w-full bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
                     onClick={onHandleOrder}
                     name="Salary"
                     style={{ color: toggled.salary ? "#f56565" : "#4a5568" }}
